@@ -13,5 +13,19 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
 #import "UIView+WJExtension.h"
+#import "UIBarButtonItem+WJExtension.h"
+
+#if DEBUG
+
+#define WJLog(...) NSLog(__VA_ARGS__)
+#define WJLogFunc WJLog(@"%s",__func__)
+
+#else 
+
+#define WJLog(...) 
+
+#endif
+
+
 
 #endif /* PrefixHeader_pch */

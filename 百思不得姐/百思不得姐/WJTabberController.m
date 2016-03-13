@@ -8,6 +8,10 @@
 
 #import "WJTabberController.h"
 #import "WJTabbar.h"
+#import "WJEssenceController.h"
+#import "WJNewController.h"
+#import "WJFriendTrendsController.h"
+#import "WJMeController.h"
 
 @interface WJTabberController ()
 
@@ -33,16 +37,16 @@
 
     
     //添加所有子控制器
-    UIViewController *essence = [[UIViewController alloc] init];
+    WJEssenceController *essence = [[WJEssenceController alloc] init];
     [self addChildViewController:essence title:@"精华" barimage:@"tabBar_essence_icon" barSelectedImage:@"tabBar_essence_click_icon"];
     
-    UIViewController *new = [[UIViewController alloc] init];
+    WJNewController *new = [[WJNewController alloc] init];
     [self addChildViewController:new title:@"新帖" barimage:@"tabBar_new_icon" barSelectedImage:@"tabBar_new_click_icon"];
     
-    UIViewController *friendTrends = [[UIViewController alloc] init];
+    WJFriendTrendsController *friendTrends = [[WJFriendTrendsController alloc] init];
     [self addChildViewController:friendTrends title:@"关注" barimage:@"tabBar_friendTrends_icon" barSelectedImage:@"tabBar_friendTrends_click_icon"];
     
-    UIViewController *me = [[UIViewController alloc] init];
+    WJMeController *me = [[WJMeController alloc] init];
     [self addChildViewController:me title:@"我" barimage:@"tabBar_me_icon" barSelectedImage:@"tabBar_me_click_icon"];
     
     //更换自定义Tabbar
@@ -60,9 +64,13 @@
     childController.tabBarItem.image = [UIImage imageNamed:image];
     
     childController.tabBarItem.selectedImage = [UIImage imageNamed:selImage];
-    childController.view.backgroundColor = [UIColor colorWithRed:arc4random_uniform(255) / 255.0 green:arc4random_uniform(255) / 255.0 blue:arc4random_uniform(255) / 255.0 alpha:1];
     
-    [self addChildViewController:childController];
+    childController.navigationItem.title = title;
+    childController.view.backgroundColor = [UIColor colorWithRed:arc4random_uniform(255) / 255.0 green:arc4random_uniform(255) / 255.0 blue:arc4random_uniform(255) / 255.0 alpha:1];
+    //包装导航控制器
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:childController];
+    [self addChildViewController:nav];
+    
 }
 
 
