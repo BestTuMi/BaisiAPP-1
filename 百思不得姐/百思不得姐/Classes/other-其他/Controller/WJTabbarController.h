@@ -1,5 +1,5 @@
 //
-//  WJMeController.h
+//  WJTabberController.h
 //  百思不得姐
 //
 //  Created by wangju on 16/3/13.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WJMeController : UIViewController
+@interface WJTabbarController : UITabBarController
 
 @end

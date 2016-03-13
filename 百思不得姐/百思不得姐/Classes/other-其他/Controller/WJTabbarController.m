@@ -6,18 +6,18 @@
 //  Copyright © 2016年 wangju. All rights reserved.
 //
 
-#import "WJTabberController.h"
+#import "WJTabbarController.h"
 #import "WJTabbar.h"
 #import "WJEssenceController.h"
 #import "WJNewController.h"
 #import "WJFriendTrendsController.h"
 #import "WJMeController.h"
 
-@interface WJTabberController ()
+@interface WJTabbarController ()
 
 @end
 
-@implementation WJTabberController
+@implementation WJTabbarController
 
 + (void)initialize
 {
@@ -52,6 +52,7 @@
     //更换自定义Tabbar
 //    self.tabBar = [[WJTabbar alloc] init];
     [self setValue:[[WJTabbar alloc] init] forKey:@"tabBar"];
+
     
   
 }
@@ -66,9 +67,12 @@
     childController.tabBarItem.selectedImage = [UIImage imageNamed:selImage];
     
     childController.navigationItem.title = title;
-    childController.view.backgroundColor = [UIColor colorWithRed:arc4random_uniform(255) / 255.0 green:arc4random_uniform(255) / 255.0 blue:arc4random_uniform(255) / 255.0 alpha:1];
+//    一开始创建会同时创建全部的控制器
+//    childController.view.backgroundColor = WJGlobalBGColor;
     //包装导航控制器
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:childController];
+    [nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
+    
     [self addChildViewController:nav];
     
 }
