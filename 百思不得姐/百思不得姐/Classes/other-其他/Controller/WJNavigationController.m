@@ -10,11 +10,18 @@
 
 @implementation WJNavigationController
 
++ (void)initialize
+{
+    UINavigationBar *bar = [UINavigationBar appearanceWhenContainedIn:[self class], nil];
+    [bar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
+    WJLogFunc;
+
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
+  
 }
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated

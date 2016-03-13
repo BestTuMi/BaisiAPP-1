@@ -18,6 +18,7 @@
 		992CEA211C9585B4002C8B2C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 992CEA131C9585B4002C8B2C /* main.m */; };
 		992CEA221C9585B4002C8B2C /* WJTabbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 992CEA181C9585B4002C8B2C /* WJTabbar.m */; };
 		992CEA251C958C71002C8B2C /* WJNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 992CEA241C958C71002C8B2C /* WJNavigationController.m */; };
+		992CEA271C959759002C8B2C /* WJFriendTrendsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 992CEA261C959759002C8B2C /* WJFriendTrendsController.xib */; };
 		99F6AEB51C953347003B4B1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99F6AEB41C953347003B4B1F /* Assets.xcassets */; };
 		99F6AEC31C953347003B4B1F /* _____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F6AEC21C953347003B4B1F /* _____Tests.m */; };
 		99F6AECE1C953347003B4B1F /* _____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F6AECD1C953347003B4B1F /* _____UITests.m */; };
@@ -63,6 +64,7 @@
 		992CEA181C9585B4002C8B2C /* WJTabbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJTabbar.m; sourceTree = "<group>"; };
 		992CEA231C958C71002C8B2C /* WJNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJNavigationController.h; sourceTree = "<group>"; };
 		992CEA241C958C71002C8B2C /* WJNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJNavigationController.m; sourceTree = "<group>"; };
+		992CEA261C959759002C8B2C /* WJFriendTrendsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WJFriendTrendsController.xib; sourceTree = "<group>"; };
 		99F6AEA51C953347003B4B1F /* 百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		99F6AEB41C953347003B4B1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99F6AEB91C953347003B4B1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 			children = (
 				992CE9F81C9585B4002C8B2C /* WJFriendTrendsController.h */,
 				992CE9F91C9585B4002C8B2C /* WJFriendTrendsController.m */,
+				992CEA261C959759002C8B2C /* WJFriendTrendsController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				992CEA271C959759002C8B2C /* WJFriendTrendsController.xib in Resources */,
 				99F6AEB51C953347003B4B1F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
