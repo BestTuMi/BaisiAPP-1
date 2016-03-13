@@ -7,6 +7,7 @@
 //
 
 #import "WJFriendTrendsController.h"
+#import "WJRecommendController.h"
 
 @interface WJFriendTrendsController ()
 
@@ -31,18 +32,12 @@
 
 - (void)buttonClicked
 {
-    WJLogFunc;
+    WJRecommendController *recommendVc = [[WJRecommendController alloc] init];
+    [self.navigationController pushViewController:recommendVc animated:YES];
     
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    UIViewController *vc = [[UIViewController alloc] init];
-    vc.view.backgroundColor = [UIColor redColor];
-    
-    [self.navigationController pushViewController:vc animated:YES];
 
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
