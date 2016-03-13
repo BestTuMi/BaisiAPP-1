@@ -12,6 +12,8 @@
 #import "WJNewController.h"
 #import "WJFriendTrendsController.h"
 #import "WJMeController.h"
+#import "WJNavigationController.h"
+
 
 @interface WJTabbarController ()
 
@@ -70,9 +72,8 @@
 //    一开始创建会同时创建全部的控制器
 //    childController.view.backgroundColor = WJGlobalBGColor;
     //包装导航控制器
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:childController];
-    [nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
-    
+    WJNavigationController *nav = [[WJNavigationController alloc] initWithRootViewController:childController];
+
     [self addChildViewController:nav];
     
 }

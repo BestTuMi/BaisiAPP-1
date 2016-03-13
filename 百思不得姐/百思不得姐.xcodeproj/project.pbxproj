@@ -17,6 +17,7 @@
 		992CEA201C9585B4002C8B2C /* WJTabbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 992CEA121C9585B4002C8B2C /* WJTabbarController.m */; };
 		992CEA211C9585B4002C8B2C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 992CEA131C9585B4002C8B2C /* main.m */; };
 		992CEA221C9585B4002C8B2C /* WJTabbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 992CEA181C9585B4002C8B2C /* WJTabbar.m */; };
+		992CEA251C958C71002C8B2C /* WJNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 992CEA241C958C71002C8B2C /* WJNavigationController.m */; };
 		99F6AEB51C953347003B4B1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99F6AEB41C953347003B4B1F /* Assets.xcassets */; };
 		99F6AEC31C953347003B4B1F /* _____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F6AEC21C953347003B4B1F /* _____Tests.m */; };
 		99F6AECE1C953347003B4B1F /* _____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F6AECD1C953347003B4B1F /* _____UITests.m */; };
@@ -60,6 +61,8 @@
 		992CEA151C9585B4002C8B2C /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		992CEA171C9585B4002C8B2C /* WJTabbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJTabbar.h; sourceTree = "<group>"; };
 		992CEA181C9585B4002C8B2C /* WJTabbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJTabbar.m; sourceTree = "<group>"; };
+		992CEA231C958C71002C8B2C /* WJNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJNavigationController.h; sourceTree = "<group>"; };
+		992CEA241C958C71002C8B2C /* WJNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJNavigationController.m; sourceTree = "<group>"; };
 		99F6AEA51C953347003B4B1F /* 百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		99F6AEB41C953347003B4B1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99F6AEB91C953347003B4B1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -271,6 +274,8 @@
 			children = (
 				992CEA111C9585B4002C8B2C /* WJTabbarController.h */,
 				992CEA121C9585B4002C8B2C /* WJTabbarController.m */,
+				992CEA231C958C71002C8B2C /* WJNavigationController.h */,
+				992CEA241C958C71002C8B2C /* WJNavigationController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -484,6 +489,7 @@
 				992CEA191C9585B4002C8B2C /* WJEssenceController.m in Sources */,
 				992CEA1B1C9585B4002C8B2C /* WJMeController.m in Sources */,
 				992CEA1F1C9585B4002C8B2C /* UIView+WJExtension.m in Sources */,
+				992CEA251C958C71002C8B2C /* WJNavigationController.m in Sources */,
 				992CEA201C9585B4002C8B2C /* WJTabbarController.m in Sources */,
 				992CEA1E1C9585B4002C8B2C /* UIBarButtonItem+WJExtension.m in Sources */,
 				992CEA1C1C9585B4002C8B2C /* WJNewController.m in Sources */,
