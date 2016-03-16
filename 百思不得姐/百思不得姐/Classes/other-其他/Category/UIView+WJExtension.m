@@ -20,7 +20,7 @@
 - (void)setY:(CGFloat)y
 {
     CGRect frame = self.frame;
-    frame.origin.x = y;
+    frame.origin.y = y;
     self.frame = frame;
 }
 
