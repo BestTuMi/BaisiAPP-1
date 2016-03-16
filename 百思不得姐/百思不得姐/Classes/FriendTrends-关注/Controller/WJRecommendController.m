@@ -20,9 +20,6 @@
 /*左边的类别数据*/
 @property (nonatomic,strong) NSArray *list;
 
-//右边的用户的数据
-@property (nonatomic,strong) NSMutableArray *users;
-
 @property (weak, nonatomic) IBOutlet UITableView *categorys;
 @property (weak, nonatomic) IBOutlet UITableView *userInfos;
 
@@ -88,8 +85,8 @@ static NSString * const userID = @"user";
     if (tableView == self.categorys) {
         return self.list.count;
     }
-    
-    return self.users.count;
+    WJRecommondCategory *category = self.list[self.categorys.indexPathForSelectedRow.row];
+    return category.users.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -104,11 +101,10 @@ static NSString * const userID = @"user";
     }
     else
     {
-        WJRecommondUser *user = self.users[indexPath.row];
+        WJRecommondCategory *category = self.list[self.categorys.indexPathForSelectedRow.row];
+        WJRecommondUser *user = category.users[indexPath.row];
         WJRecommondUserCell *cell = [tableView dequeueReusableCellWithIdentifier:userID];
-        
-//        cell.user = self.users;
-    
+ 
         cell.user = user;
         return cell;
     }
@@ -120,23 +116,34 @@ static NSString * const userID = @"user";
     WJRecommondCategory *category = self.list[indexPath.row];
     WJLog(@"%@",category.name);
 
-    NSMutableDictionary *params =[NSMutableDictionary dictionary];
-    params[@"a"] = @"list";
-    params[@"c"] = @"subscribe";
-    params[@"category_id"] = @(category.id);
-    NSString *url = @"http://api.budejie.com/api/api_open.php";
-    [[AFHTTPSessionManager manager] GET:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        WJLog(@"%@",responseObject);
-        
-        self.users = [WJRecommondUser mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+    
+    if (category.users.count) {//有曾经的数据
         [self.userInfos reloadData];
-        
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-        [SVProgressHUD showErrorWithStatus:@"网络请求失败"];
-        
-    }];
+    }
+    else
+    {
+        NSMutableDictionary *params =[NSMutableDictionary dictionary];
+        params[@"a"] = @"list";
+        params[@"c"] = @"subscribe";
+        params[@"category_id"] = @(category.id);
+        NSString *url = @"http://api.budejie.com/api/api_open.php";
+        [[AFHTTPSessionManager manager] GET:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            WJLog(@"%@",responseObject);
+            
+            NSArray *users = [WJRecommondUser mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+            [category.users addObjectsFromArray:users];
+            
+            [self.userInfos reloadData];
+            
+            
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            
+            [SVProgressHUD showErrorWithStatus:@"网络请求失败"];
+            
+        }];
+    
+    
+    }
 
 }
 

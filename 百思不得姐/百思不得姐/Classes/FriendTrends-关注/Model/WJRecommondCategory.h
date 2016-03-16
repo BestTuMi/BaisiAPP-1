@@ -20,4 +20,8 @@
 /*名称*/
 @property (nonatomic,copy) NSString *name;
 
+
+/*该条目的用户数据*/
+@property (nonatomic,strong) NSMutableArray *users;
+
 @end
