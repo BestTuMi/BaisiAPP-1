@@ -48,7 +48,7 @@
     
     self.selecterIndecator.hidden = !selected;
     
-    self.textLabel.textColor = selected?WJRGBColor(219, 21, 76):WJRGBColor(85, 85, 85);
+    self.textLabel.textColor = selected?WJRGBColor(219, 21, 76):WJRGBColor(120, 120, 120);
     self.backgroundColor = selected?[UIColor whiteColor]:WJGlobalBGColor;
     
     // Configure the view for the selected state

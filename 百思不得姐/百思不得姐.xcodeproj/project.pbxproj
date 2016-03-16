@@ -24,6 +24,9 @@
 		9971CDC71C99A55200DDCFF6 /* WJRecommondCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9971CDC61C99A55200DDCFF6 /* WJRecommondCategory.m */; };
 		9971CDD01C99A55200DDCFF6 /* WJCategoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9971CDCE1C99A55200DDCFF6 /* WJCategoryTableViewCell.m */; };
 		9971CDD11C99A55200DDCFF6 /* WJCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9971CDCF1C99A55200DDCFF6 /* WJCategoryTableViewCell.xib */; };
+		9971CDD51C99A55200DDCFF6 /* WJRecommondUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9971CDD31C99A55200DDCFF6 /* WJRecommondUserCell.m */; };
+		9971CDD61C99A55200DDCFF6 /* WJRecommondUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9971CDD41C99A55200DDCFF6 /* WJRecommondUserCell.xib */; };
+		9971CDD91C99A55200DDCFF6 /* WJRecommondUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9971CDD81C99A55200DDCFF6 /* WJRecommondUser.m */; };
 		99F6AEB51C953347003B4B1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99F6AEB41C953347003B4B1F /* Assets.xcassets */; };
 		99F6AEC31C953347003B4B1F /* _____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F6AEC21C953347003B4B1F /* _____Tests.m */; };
 		99F6AECE1C953347003B4B1F /* _____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F6AECD1C953347003B4B1F /* _____UITests.m */; };
@@ -80,6 +83,11 @@
 		9971CDCD1C99A55200DDCFF6 /* WJCategoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJCategoryTableViewCell.h; sourceTree = "<group>"; };
 		9971CDCE1C99A55200DDCFF6 /* WJCategoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJCategoryTableViewCell.m; sourceTree = "<group>"; };
 		9971CDCF1C99A55200DDCFF6 /* WJCategoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WJCategoryTableViewCell.xib; sourceTree = "<group>"; };
+		9971CDD21C99A55200DDCFF6 /* WJRecommondUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJRecommondUserCell.h; sourceTree = "<group>"; };
+		9971CDD31C99A55200DDCFF6 /* WJRecommondUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJRecommondUserCell.m; sourceTree = "<group>"; };
+		9971CDD41C99A55200DDCFF6 /* WJRecommondUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WJRecommondUserCell.xib; sourceTree = "<group>"; };
+		9971CDD71C99A55200DDCFF6 /* WJRecommondUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJRecommondUser.h; sourceTree = "<group>"; };
+		9971CDD81C99A55200DDCFF6 /* WJRecommondUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJRecommondUser.m; sourceTree = "<group>"; };
 		99F6AEA51C953347003B4B1F /* 百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		99F6AEB41C953347003B4B1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99F6AEB91C953347003B4B1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -201,6 +209,8 @@
 			children = (
 				9971CDC51C99A55200DDCFF6 /* WJRecommondCategory.h */,
 				9971CDC61C99A55200DDCFF6 /* WJRecommondCategory.m */,
+				9971CDD71C99A55200DDCFF6 /* WJRecommondUser.h */,
+				9971CDD81C99A55200DDCFF6 /* WJRecommondUser.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -211,6 +221,9 @@
 				9971CDCD1C99A55200DDCFF6 /* WJCategoryTableViewCell.h */,
 				9971CDCE1C99A55200DDCFF6 /* WJCategoryTableViewCell.m */,
 				9971CDCF1C99A55200DDCFF6 /* WJCategoryTableViewCell.xib */,
+				9971CDD21C99A55200DDCFF6 /* WJRecommondUserCell.h */,
+				9971CDD31C99A55200DDCFF6 /* WJRecommondUserCell.m */,
+				9971CDD41C99A55200DDCFF6 /* WJRecommondUserCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -514,6 +527,7 @@
 				9971CDC41C99A55200DDCFF6 /* WJRecommendController.xib in Resources */,
 				9971CDD11C99A55200DDCFF6 /* WJCategoryTableViewCell.xib in Resources */,
 				99F6AEB51C953347003B4B1F /* Assets.xcassets in Resources */,
+				9971CDD61C99A55200DDCFF6 /* WJRecommondUserCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -586,6 +600,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9971CDD91C99A55200DDCFF6 /* WJRecommondUser.m in Sources */,
 				992CEA221C9585B4002C8B2C /* WJTabbar.m in Sources */,
 				992CEA1A1C9585B4002C8B2C /* WJFriendTrendsController.m in Sources */,
 				9971CDD01C99A55200DDCFF6 /* WJCategoryTableViewCell.m in Sources */,
@@ -596,6 +611,7 @@
 				9971CDC71C99A55200DDCFF6 /* WJRecommondCategory.m in Sources */,
 				992CEA251C958C71002C8B2C /* WJNavigationController.m in Sources */,
 				992CEA201C9585B4002C8B2C /* WJTabbarController.m in Sources */,
+				9971CDD51C99A55200DDCFF6 /* WJRecommondUserCell.m in Sources */,
 				992CEA1E1C9585B4002C8B2C /* UIBarButtonItem+WJExtension.m in Sources */,
 				992CEA1C1C9585B4002C8B2C /* WJNewController.m in Sources */,
 				992CEA211C9585B4002C8B2C /* main.m in Sources */,
