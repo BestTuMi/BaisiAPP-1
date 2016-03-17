@@ -72,8 +72,8 @@ static NSString * const userID = @"user";
     NSMutableDictionary *params =[NSMutableDictionary dictionary];
     params[@"a"] = @"category";
     params[@"c"] = @"subscribe";
-    NSString *url = @"http://api.budejie.com/api/api_open.php";
-    [self.manager GET:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    
+    [self.manager GET:BSURL parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [SVProgressHUD dismiss];
         
         self.list = [WJRecommondCategory mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
@@ -156,8 +156,8 @@ static NSString * const userID = @"user";
     params[@"page"] = @(category.next_page);
     
     self.params = params;
-    NSString *url = @"http://api.budejie.com/api/api_open.php";
-    [self.manager GET:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+
+    [self.manager GET:BSURL parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         WJLog(@"%@",responseObject);
         
         NSArray *users = [WJRecommondUser mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];

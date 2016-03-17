@@ -27,6 +27,10 @@
 		9971CDD51C99A55200DDCFF6 /* WJRecommondUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9971CDD31C99A55200DDCFF6 /* WJRecommondUserCell.m */; };
 		9971CDD61C99A55200DDCFF6 /* WJRecommondUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9971CDD41C99A55200DDCFF6 /* WJRecommondUserCell.xib */; };
 		9971CDD91C99A55200DDCFF6 /* WJRecommondUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9971CDD81C99A55200DDCFF6 /* WJRecommondUser.m */; };
+		998CE9A21C9AF69300CE5814 /* WJRecommandTagController.m in Sources */ = {isa = PBXBuildFile; fileRef = 998CE9A11C9AF69300CE5814 /* WJRecommandTagController.m */; };
+		998CE9A51C9AFE9100CE5814 /* WJRecommendTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 998CE9A41C9AFE9100CE5814 /* WJRecommendTag.m */; };
+		998CE9A91C9AFFE200CE5814 /* WJRecommendTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 998CE9A71C9AFFE200CE5814 /* WJRecommendTagCell.m */; };
+		998CE9AA1C9AFFE200CE5814 /* WJRecommendTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 998CE9A81C9AFFE200CE5814 /* WJRecommendTagCell.xib */; };
 		99F6AEB51C953347003B4B1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99F6AEB41C953347003B4B1F /* Assets.xcassets */; };
 		99F6AEC31C953347003B4B1F /* _____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F6AEC21C953347003B4B1F /* _____Tests.m */; };
 		99F6AECE1C953347003B4B1F /* _____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F6AECD1C953347003B4B1F /* _____UITests.m */; };
@@ -88,6 +92,13 @@
 		9971CDD41C99A55200DDCFF6 /* WJRecommondUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WJRecommondUserCell.xib; sourceTree = "<group>"; };
 		9971CDD71C99A55200DDCFF6 /* WJRecommondUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJRecommondUser.h; sourceTree = "<group>"; };
 		9971CDD81C99A55200DDCFF6 /* WJRecommondUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJRecommondUser.m; sourceTree = "<group>"; };
+		998CE9A01C9AF69300CE5814 /* WJRecommandTagController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJRecommandTagController.h; sourceTree = "<group>"; };
+		998CE9A11C9AF69300CE5814 /* WJRecommandTagController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJRecommandTagController.m; sourceTree = "<group>"; };
+		998CE9A31C9AFE9100CE5814 /* WJRecommendTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJRecommendTag.h; sourceTree = "<group>"; };
+		998CE9A41C9AFE9100CE5814 /* WJRecommendTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJRecommendTag.m; sourceTree = "<group>"; };
+		998CE9A61C9AFFE200CE5814 /* WJRecommendTagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJRecommendTagCell.h; sourceTree = "<group>"; };
+		998CE9A71C9AFFE200CE5814 /* WJRecommendTagCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJRecommendTagCell.m; sourceTree = "<group>"; };
+		998CE9A81C9AFFE200CE5814 /* WJRecommendTagCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WJRecommendTagCell.xib; sourceTree = "<group>"; };
 		99F6AEA51C953347003B4B1F /* 百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		99F6AEB41C953347003B4B1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99F6AEB91C953347003B4B1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -163,6 +174,8 @@
 			children = (
 				992CE9F21C9585B4002C8B2C /* WJEssenceController.h */,
 				992CE9F31C9585B4002C8B2C /* WJEssenceController.m */,
+				998CE9A01C9AF69300CE5814 /* WJRecommandTagController.h */,
+				998CE9A11C9AF69300CE5814 /* WJRecommandTagController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -170,6 +183,8 @@
 		992CE9F41C9585B4002C8B2C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				998CE9A31C9AFE9100CE5814 /* WJRecommendTag.h */,
+				998CE9A41C9AFE9100CE5814 /* WJRecommendTag.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -177,6 +192,9 @@
 		992CE9F51C9585B4002C8B2C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				998CE9A61C9AFFE200CE5814 /* WJRecommendTagCell.h */,
+				998CE9A71C9AFFE200CE5814 /* WJRecommendTagCell.m */,
+				998CE9A81C9AFFE200CE5814 /* WJRecommendTagCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -525,6 +543,7 @@
 			files = (
 				992CEA271C959759002C8B2C /* WJFriendTrendsController.xib in Resources */,
 				9971CDC41C99A55200DDCFF6 /* WJRecommendController.xib in Resources */,
+				998CE9AA1C9AFFE200CE5814 /* WJRecommendTagCell.xib in Resources */,
 				9971CDD11C99A55200DDCFF6 /* WJCategoryTableViewCell.xib in Resources */,
 				99F6AEB51C953347003B4B1F /* Assets.xcassets in Resources */,
 				9971CDD61C99A55200DDCFF6 /* WJRecommondUserCell.xib in Resources */,
@@ -605,16 +624,19 @@
 				992CEA1A1C9585B4002C8B2C /* WJFriendTrendsController.m in Sources */,
 				9971CDD01C99A55200DDCFF6 /* WJCategoryTableViewCell.m in Sources */,
 				992CEA191C9585B4002C8B2C /* WJEssenceController.m in Sources */,
+				998CE9A21C9AF69300CE5814 /* WJRecommandTagController.m in Sources */,
 				992CEA1B1C9585B4002C8B2C /* WJMeController.m in Sources */,
 				992CEA1F1C9585B4002C8B2C /* UIView+WJExtension.m in Sources */,
 				992CEA2A1C95A17D002C8B2C /* WJRecommendController.m in Sources */,
 				9971CDC71C99A55200DDCFF6 /* WJRecommondCategory.m in Sources */,
+				998CE9A51C9AFE9100CE5814 /* WJRecommendTag.m in Sources */,
 				992CEA251C958C71002C8B2C /* WJNavigationController.m in Sources */,
 				992CEA201C9585B4002C8B2C /* WJTabbarController.m in Sources */,
 				9971CDD51C99A55200DDCFF6 /* WJRecommondUserCell.m in Sources */,
 				992CEA1E1C9585B4002C8B2C /* UIBarButtonItem+WJExtension.m in Sources */,
 				992CEA1C1C9585B4002C8B2C /* WJNewController.m in Sources */,
 				992CEA211C9585B4002C8B2C /* main.m in Sources */,
+				998CE9A91C9AFFE200CE5814 /* WJRecommendTagCell.m in Sources */,
 				992CEA1D1C9585B4002C8B2C /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

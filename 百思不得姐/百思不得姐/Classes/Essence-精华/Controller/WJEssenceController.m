@@ -7,6 +7,7 @@
 //
 
 #import "WJEssenceController.h"
+#import "WJRecommandTagController.h"
 
 @interface WJEssenceController ()
 
@@ -32,7 +33,8 @@
 
 - (void)buttonClicked
 {
-    WJLogFunc;
+    WJRecommandTagController *tagVc= [[WJRecommandTagController alloc] init];
+    [self.navigationController pushViewController:tagVc animated:YES];
 
 }
 
