@@ -24,4 +24,10 @@
 /*该条目的用户数据*/
 @property (nonatomic,strong) NSMutableArray *users;
 
+/*下一页*/
+@property (nonatomic,assign) NSInteger next_page;
+
+/*总页数*/
+@property (nonatomic,assign) NSInteger total_page;
+
 @end

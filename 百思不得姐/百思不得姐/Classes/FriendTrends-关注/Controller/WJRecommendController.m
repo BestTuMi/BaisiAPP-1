@@ -10,10 +10,13 @@
 #import <AFNetworking.h>
 #import <SVProgressHUD.h>
 #import <MJExtension.h>
+#import <MJRefresh.h>
 #import "WJRecommondCategory.h"
 #import "WJCategoryTableViewCell.h"
 #import "WJRecommondUser.h"
 #import "WJRecommondUserCell.h"
+
+#define WJSelecterCategory self.list[self.categorys.indexPathForSelectedRow.row]
 
 @interface WJRecommendController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -37,8 +40,11 @@ static NSString * const userID = @"user";
     self.title = @"推荐关注";
     self.view.backgroundColor = WJGlobalBGColor;
     
-    
+    //初始化tableView
     [self setupTableView];
+    
+    //添加刷新控件
+    [self setupRefresh];
     
     
     [SVProgressHUD showWithStatus:@"努力加载中..." maskType:SVProgressHUDMaskTypeClear];
@@ -78,6 +84,48 @@ static NSString * const userID = @"user";
     self.userInfos.rowHeight = 60;
 }
 
+/**
+ *  添加刷新控件
+ */
+- (void)setupRefresh
+{
+    self.userInfos.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreUsers)];
+    self.userInfos.mj_footer.hidden = YES;
+    
+}
+/**
+ *  加载用户数据
+ */
+-(void)loadMoreUsers
+{
+    WJRecommondCategory *category = WJSelecterCategory;
+    
+    WJLog(@"%s",__func__);
+    NSMutableDictionary *params =[NSMutableDictionary dictionary];
+    params[@"a"] = @"list";
+    params[@"c"] = @"subscribe";
+    params[@"category_id"] = @(category.id);
+    params[@"page"] = @(category.next_page);
+    NSString *url = @"http://api.budejie.com/api/api_open.php";
+    [[AFHTTPSessionManager manager] GET:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        WJLog(@"%@",responseObject);
+        
+        NSArray *users = [WJRecommondUser mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        category.next_page = [responseObject[@"next_page"] integerValue];
+        
+        [category.users addObjectsFromArray:users];
+        
+        [self.userInfos reloadData];
+        
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        [SVProgressHUD showErrorWithStatus:@"网络请求失败"];
+        
+    }];
+    
+}
+
 #pragma mark - tableView的代理方法
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -85,7 +133,10 @@ static NSString * const userID = @"user";
     if (tableView == self.categorys) {
         return self.list.count;
     }
-    WJRecommondCategory *category = self.list[self.categorys.indexPathForSelectedRow.row];
+    WJRecommondCategory *category = WJSelecterCategory;
+    
+    self.userInfos.mj_footer.hidden = (category.users.count == 0);
+    
     return category.users.count;
 }
 
@@ -101,7 +152,8 @@ static NSString * const userID = @"user";
     }
     else
     {
-        WJRecommondCategory *category = self.list[self.categorys.indexPathForSelectedRow.row];
+        WJRecommondCategory *category = WJSelecterCategory;
+        
         WJRecommondUser *user = category.users[indexPath.row];
         WJRecommondUserCell *cell = [tableView dequeueReusableCellWithIdentifier:userID];
  
@@ -113,6 +165,8 @@ static NSString * const userID = @"user";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (tableView == self.userInfos) return;
+    
     WJRecommondCategory *category = self.list[indexPath.row];
     WJLog(@"%@",category.name);
 
@@ -126,11 +180,13 @@ static NSString * const userID = @"user";
         params[@"a"] = @"list";
         params[@"c"] = @"subscribe";
         params[@"category_id"] = @(category.id);
+        params[@"page"] = @(category.next_page);
         NSString *url = @"http://api.budejie.com/api/api_open.php";
         [[AFHTTPSessionManager manager] GET:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             WJLog(@"%@",responseObject);
             
             NSArray *users = [WJRecommondUser mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+            category.next_page = [responseObject[@"next_page"] integerValue];
             [category.users addObjectsFromArray:users];
             
             [self.userInfos reloadData];

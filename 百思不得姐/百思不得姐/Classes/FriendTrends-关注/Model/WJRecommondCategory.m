@@ -18,4 +18,11 @@
     return _users;
 }
 
+- (NSInteger)next_page
+{
+    if (_next_page == 0) {
+        _next_page = 1;
+    }
+    return _next_page;
+}
 @end
