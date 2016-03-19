@@ -19,7 +19,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    WJLog(@"%s",__func__);
     
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MainTitle"]];
 

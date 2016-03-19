@@ -14,7 +14,6 @@
 {
     UINavigationBar *bar = [UINavigationBar appearanceWhenContainedIn:[self class], nil];
     [bar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
-    WJLogFunc;
 
 }
 

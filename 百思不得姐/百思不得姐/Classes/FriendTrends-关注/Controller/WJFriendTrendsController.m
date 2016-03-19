@@ -8,6 +8,7 @@
 
 #import "WJFriendTrendsController.h"
 #import "WJRecommendController.h"
+#import "WJLoginResignController.h"
 
 @interface WJFriendTrendsController ()
 
@@ -18,7 +19,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    WJLogFunc;
     self.navigationItem.title = @"我的关注";
     
     UIBarButtonItem *leftButton = [UIBarButtonItem itemWithImage:@"friendsRecommentIcon" highImage:@"friendsRecommentIcon-click" target:self action:@selector(buttonClicked)];
@@ -27,6 +27,12 @@
     //设置背景色
     self.view.backgroundColor = WJGlobalBGColor;
 
+    
+}
+- (IBAction)loginOrResign {
+    
+    WJLoginResignController *logVc = [[WJLoginResignController alloc] init];
+    [self.navigationController presentViewController:logVc animated:YES completion:nil];
     
 }
 

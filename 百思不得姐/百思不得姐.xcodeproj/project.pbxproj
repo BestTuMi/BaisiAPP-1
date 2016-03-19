@@ -27,6 +27,10 @@
 		9971CDD51C99A55200DDCFF6 /* WJRecommondUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9971CDD31C99A55200DDCFF6 /* WJRecommondUserCell.m */; };
 		9971CDD61C99A55200DDCFF6 /* WJRecommondUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9971CDD41C99A55200DDCFF6 /* WJRecommondUserCell.xib */; };
 		9971CDD91C99A55200DDCFF6 /* WJRecommondUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9971CDD81C99A55200DDCFF6 /* WJRecommondUser.m */; };
+		997B49C81C9D7E7B00452F37 /* WJLoginResignController.m in Sources */ = {isa = PBXBuildFile; fileRef = 997B49C61C9D7E7B00452F37 /* WJLoginResignController.m */; };
+		997B49C91C9D7E7B00452F37 /* WJLoginResignController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 997B49C71C9D7E7B00452F37 /* WJLoginResignController.xib */; };
+		997B49CC1C9D868100452F37 /* WJVerticalButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 997B49CB1C9D868100452F37 /* WJVerticalButton.m */; };
+		997B49CF1C9D982600452F37 /* WJloginTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 997B49CE1C9D982600452F37 /* WJloginTextField.m */; };
 		998CE9A21C9AF69300CE5814 /* WJRecommandTagController.m in Sources */ = {isa = PBXBuildFile; fileRef = 998CE9A11C9AF69300CE5814 /* WJRecommandTagController.m */; };
 		998CE9A51C9AFE9100CE5814 /* WJRecommendTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 998CE9A41C9AFE9100CE5814 /* WJRecommendTag.m */; };
 		998CE9A91C9AFFE200CE5814 /* WJRecommendTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 998CE9A71C9AFFE200CE5814 /* WJRecommendTagCell.m */; };
@@ -92,6 +96,13 @@
 		9971CDD41C99A55200DDCFF6 /* WJRecommondUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WJRecommondUserCell.xib; sourceTree = "<group>"; };
 		9971CDD71C99A55200DDCFF6 /* WJRecommondUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJRecommondUser.h; sourceTree = "<group>"; };
 		9971CDD81C99A55200DDCFF6 /* WJRecommondUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJRecommondUser.m; sourceTree = "<group>"; };
+		997B49C51C9D7E7B00452F37 /* WJLoginResignController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJLoginResignController.h; sourceTree = "<group>"; };
+		997B49C61C9D7E7B00452F37 /* WJLoginResignController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJLoginResignController.m; sourceTree = "<group>"; };
+		997B49C71C9D7E7B00452F37 /* WJLoginResignController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WJLoginResignController.xib; sourceTree = "<group>"; };
+		997B49CA1C9D868100452F37 /* WJVerticalButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJVerticalButton.h; sourceTree = "<group>"; };
+		997B49CB1C9D868100452F37 /* WJVerticalButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJVerticalButton.m; sourceTree = "<group>"; };
+		997B49CD1C9D982600452F37 /* WJloginTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJloginTextField.h; sourceTree = "<group>"; };
+		997B49CE1C9D982600452F37 /* WJloginTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJloginTextField.m; sourceTree = "<group>"; };
 		998CE9A01C9AF69300CE5814 /* WJRecommandTagController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJRecommandTagController.h; sourceTree = "<group>"; };
 		998CE9A11C9AF69300CE5814 /* WJRecommandTagController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJRecommandTagController.m; sourceTree = "<group>"; };
 		998CE9A31C9AFE9100CE5814 /* WJRecommendTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJRecommendTag.h; sourceTree = "<group>"; };
@@ -218,6 +229,9 @@
 				992CEA281C95A17D002C8B2C /* WJRecommendController.h */,
 				992CEA291C95A17D002C8B2C /* WJRecommendController.m */,
 				9971CDC31C99A55200DDCFF6 /* WJRecommendController.xib */,
+				997B49C51C9D7E7B00452F37 /* WJLoginResignController.h */,
+				997B49C61C9D7E7B00452F37 /* WJLoginResignController.m */,
+				997B49C71C9D7E7B00452F37 /* WJLoginResignController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -242,6 +256,8 @@
 				9971CDD21C99A55200DDCFF6 /* WJRecommondUserCell.h */,
 				9971CDD31C99A55200DDCFF6 /* WJRecommondUserCell.m */,
 				9971CDD41C99A55200DDCFF6 /* WJRecommondUserCell.xib */,
+				997B49CD1C9D982600452F37 /* WJloginTextField.h */,
+				997B49CE1C9D982600452F37 /* WJloginTextField.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -361,6 +377,8 @@
 			children = (
 				992CEA171C9585B4002C8B2C /* WJTabbar.h */,
 				992CEA181C9585B4002C8B2C /* WJTabbar.m */,
+				997B49CA1C9D868100452F37 /* WJVerticalButton.h */,
+				997B49CB1C9D868100452F37 /* WJVerticalButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -543,6 +561,7 @@
 			files = (
 				992CEA271C959759002C8B2C /* WJFriendTrendsController.xib in Resources */,
 				9971CDC41C99A55200DDCFF6 /* WJRecommendController.xib in Resources */,
+				997B49C91C9D7E7B00452F37 /* WJLoginResignController.xib in Resources */,
 				998CE9AA1C9AFFE200CE5814 /* WJRecommendTagCell.xib in Resources */,
 				9971CDD11C99A55200DDCFF6 /* WJCategoryTableViewCell.xib in Resources */,
 				99F6AEB51C953347003B4B1F /* Assets.xcassets in Resources */,
@@ -619,8 +638,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				997B49CF1C9D982600452F37 /* WJloginTextField.m in Sources */,
 				9971CDD91C99A55200DDCFF6 /* WJRecommondUser.m in Sources */,
 				992CEA221C9585B4002C8B2C /* WJTabbar.m in Sources */,
+				997B49CC1C9D868100452F37 /* WJVerticalButton.m in Sources */,
 				992CEA1A1C9585B4002C8B2C /* WJFriendTrendsController.m in Sources */,
 				9971CDD01C99A55200DDCFF6 /* WJCategoryTableViewCell.m in Sources */,
 				992CEA191C9585B4002C8B2C /* WJEssenceController.m in Sources */,
@@ -637,6 +658,7 @@
 				992CEA1C1C9585B4002C8B2C /* WJNewController.m in Sources */,
 				992CEA211C9585B4002C8B2C /* main.m in Sources */,
 				998CE9A91C9AFFE200CE5814 /* WJRecommendTagCell.m in Sources */,
+				997B49C81C9D7E7B00452F37 /* WJLoginResignController.m in Sources */,
 				992CEA1D1C9585B4002C8B2C /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
