@@ -37,6 +37,11 @@
 		998CE9AA1C9AFFE200CE5814 /* WJRecommendTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 998CE9A81C9AFFE200CE5814 /* WJRecommendTagCell.xib */; };
 		99C983421C9EBE9A00FA89C8 /* WJPushGuide.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C983411C9EBE9A00FA89C8 /* WJPushGuide.m */; };
 		99C983441C9EBEB400FA89C8 /* WJPushGuide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C983431C9EBEB400FA89C8 /* WJPushGuide.xib */; };
+		99C9834A1C9EE51400FA89C8 /* WJAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C983491C9EE51400FA89C8 /* WJAllViewController.m */; };
+		99C9834D1C9EE52100FA89C8 /* WJPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C9834C1C9EE52100FA89C8 /* WJPictureViewController.m */; };
+		99C983501C9EE53800FA89C8 /* WJSoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C9834F1C9EE53800FA89C8 /* WJSoundViewController.m */; };
+		99C983531C9EE54F00FA89C8 /* WJWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C983521C9EE54F00FA89C8 /* WJWordViewController.m */; };
+		99C983561C9EE56F00FA89C8 /* WJVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C983551C9EE56F00FA89C8 /* WJVideoViewController.m */; };
 		99F6AEB51C953347003B4B1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99F6AEB41C953347003B4B1F /* Assets.xcassets */; };
 		99F6AEC31C953347003B4B1F /* _____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F6AEC21C953347003B4B1F /* _____Tests.m */; };
 		99F6AECE1C953347003B4B1F /* _____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F6AECD1C953347003B4B1F /* _____UITests.m */; };
@@ -115,6 +120,16 @@
 		99C983401C9EBE9A00FA89C8 /* WJPushGuide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJPushGuide.h; sourceTree = "<group>"; };
 		99C983411C9EBE9A00FA89C8 /* WJPushGuide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJPushGuide.m; sourceTree = "<group>"; };
 		99C983431C9EBEB400FA89C8 /* WJPushGuide.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WJPushGuide.xib; sourceTree = "<group>"; };
+		99C983481C9EE51400FA89C8 /* WJAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJAllViewController.h; sourceTree = "<group>"; };
+		99C983491C9EE51400FA89C8 /* WJAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJAllViewController.m; sourceTree = "<group>"; };
+		99C9834B1C9EE52100FA89C8 /* WJPictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJPictureViewController.h; sourceTree = "<group>"; };
+		99C9834C1C9EE52100FA89C8 /* WJPictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJPictureViewController.m; sourceTree = "<group>"; };
+		99C9834E1C9EE53800FA89C8 /* WJSoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJSoundViewController.h; sourceTree = "<group>"; };
+		99C9834F1C9EE53800FA89C8 /* WJSoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJSoundViewController.m; sourceTree = "<group>"; };
+		99C983511C9EE54F00FA89C8 /* WJWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJWordViewController.h; sourceTree = "<group>"; };
+		99C983521C9EE54F00FA89C8 /* WJWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJWordViewController.m; sourceTree = "<group>"; };
+		99C983541C9EE56F00FA89C8 /* WJVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJVideoViewController.h; sourceTree = "<group>"; };
+		99C983551C9EE56F00FA89C8 /* WJVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJVideoViewController.m; sourceTree = "<group>"; };
 		99F6AEA51C953347003B4B1F /* 百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		99F6AEB41C953347003B4B1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99F6AEB91C953347003B4B1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -192,6 +207,16 @@
 				992CE9F31C9585B4002C8B2C /* WJEssenceController.m */,
 				998CE9A01C9AF69300CE5814 /* WJRecommandTagController.h */,
 				998CE9A11C9AF69300CE5814 /* WJRecommandTagController.m */,
+				99C983481C9EE51400FA89C8 /* WJAllViewController.h */,
+				99C983491C9EE51400FA89C8 /* WJAllViewController.m */,
+				99C9834B1C9EE52100FA89C8 /* WJPictureViewController.h */,
+				99C9834C1C9EE52100FA89C8 /* WJPictureViewController.m */,
+				99C9834E1C9EE53800FA89C8 /* WJSoundViewController.h */,
+				99C9834F1C9EE53800FA89C8 /* WJSoundViewController.m */,
+				99C983511C9EE54F00FA89C8 /* WJWordViewController.h */,
+				99C983521C9EE54F00FA89C8 /* WJWordViewController.m */,
+				99C983541C9EE56F00FA89C8 /* WJVideoViewController.h */,
+				99C983551C9EE56F00FA89C8 /* WJVideoViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -648,10 +673,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				997B49CF1C9D982600452F37 /* WJloginTextField.m in Sources */,
+				99C983561C9EE56F00FA89C8 /* WJVideoViewController.m in Sources */,
 				9971CDD91C99A55200DDCFF6 /* WJRecommondUser.m in Sources */,
 				992CEA221C9585B4002C8B2C /* WJTabbar.m in Sources */,
+				99C983501C9EE53800FA89C8 /* WJSoundViewController.m in Sources */,
 				997B49CC1C9D868100452F37 /* WJVerticalButton.m in Sources */,
 				992CEA1A1C9585B4002C8B2C /* WJFriendTrendsController.m in Sources */,
+				99C9834D1C9EE52100FA89C8 /* WJPictureViewController.m in Sources */,
 				9971CDD01C99A55200DDCFF6 /* WJCategoryTableViewCell.m in Sources */,
 				992CEA191C9585B4002C8B2C /* WJEssenceController.m in Sources */,
 				998CE9A21C9AF69300CE5814 /* WJRecommandTagController.m in Sources */,
@@ -664,10 +692,12 @@
 				992CEA201C9585B4002C8B2C /* WJTabbarController.m in Sources */,
 				9971CDD51C99A55200DDCFF6 /* WJRecommondUserCell.m in Sources */,
 				992CEA1E1C9585B4002C8B2C /* UIBarButtonItem+WJExtension.m in Sources */,
+				99C9834A1C9EE51400FA89C8 /* WJAllViewController.m in Sources */,
 				992CEA1C1C9585B4002C8B2C /* WJNewController.m in Sources */,
 				992CEA211C9585B4002C8B2C /* main.m in Sources */,
 				99C983421C9EBE9A00FA89C8 /* WJPushGuide.m in Sources */,
 				998CE9A91C9AFFE200CE5814 /* WJRecommendTagCell.m in Sources */,
+				99C983531C9EE54F00FA89C8 /* WJWordViewController.m in Sources */,
 				997B49C81C9D7E7B00452F37 /* WJLoginResignController.m in Sources */,
 				992CEA1D1C9585B4002C8B2C /* AppDelegate.m in Sources */,
 			);

@@ -17,6 +17,9 @@
 
 /*选中的按钮*/
 @property (nonatomic,weak) UIButton *selButton;
+
+/*指示条*/
+@property (nonatomic,weak) UIView *titleView;
 @end
 
 @implementation WJEssenceController
@@ -25,11 +28,42 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    //初始化控制器的导航栏和背景
     [self setupNav];
 
+    //初始化导航条下边的指示器
     [self setupTitlesView];
     
+    [self setupScrollView];
+    
+    
   
+}
+
+- (void)setupScrollView
+{
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    UIScrollView *contentView = [[UIScrollView alloc] init];
+    
+    contentView.frame = self.view.bounds;
+    [contentView.backgroundColor = [UIColor greenColor] colorWithAlphaComponent:0.3];
+
+    CGFloat top = CGRectGetMaxY(self.titleView.frame);
+    CGFloat bottom = self.tabBarController.tabBar.height;
+    contentView.contentInset = UIEdgeInsetsMake(top, 0, 0, bottom);
+    [self.view insertSubview:contentView atIndex:0];
+    
+    
+    //测试
+    UISwitch *swich = [[UISwitch alloc] init];
+    swich.backgroundColor = [UIColor yellowColor];
+    [contentView addSubview:swich];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeContactAdd];
+    button.y = 800;
+    [contentView addSubview:button];
+    contentView.contentSize = CGSizeMake(400, 900);
+    
+    WJLog(@"%@",contentView);
 }
 
 - (void)setupTitlesView
@@ -42,6 +76,7 @@
     titleView.y = CGRectGetMaxY(self.navigationController.navigationBar.frame);
     titleView.x = 0;
     [self.view addSubview:titleView];
+    self.titleView = titleView;
     
     //设置底部的指示器
     UIView *indicatorView = [[UIView alloc] init];
