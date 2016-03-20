@@ -11,8 +11,8 @@
 @interface UIView (WJExtension)
 
 
-- (void)setHeigth:(CGFloat)heigth;
-- (CGFloat)heigth;
+- (void)setHeight:(CGFloat)height;
+- (CGFloat)height;
 
 - (void)setWidth:(CGFloat)width;
 - (CGFloat)width;
@@ -27,6 +27,6 @@
 - (void)setSize:(CGSize)size;
 - (CGSize)size;
 
-
+@property (nonatomic,assign) CGFloat centerX;
 
 @end

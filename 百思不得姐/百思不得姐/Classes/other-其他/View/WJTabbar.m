@@ -57,7 +57,7 @@
     
     CGFloat viewX = 0;
     CGFloat viewY = 0;
-    CGFloat viewH = self.heigth;
+    CGFloat viewH = self.height;
     CGFloat viewW = self.width / 5;
     NSInteger index = 0;
     for (UIView  *view in self.subviews) {

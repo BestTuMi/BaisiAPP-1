@@ -35,7 +35,7 @@
     CGRect rect = contentRect;
     rect.origin.x = 0;
     rect.origin.y = self.size.width + 5;
-    rect.size.height = self.heigth - self.width;
+    rect.size.height = self.height - self.width;
     return rect;
 }
 

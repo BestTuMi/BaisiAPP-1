@@ -11,6 +11,12 @@
 
 @interface WJEssenceController ()
 
+
+/*标题栏底部的指示器*/
+@property (nonatomic,weak) UIView *indicatorView;
+
+/*选中的按钮*/
+@property (nonatomic,weak) UIButton *selButton;
 @end
 
 @implementation WJEssenceController
@@ -19,28 +25,101 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    
-    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MainTitle"]];
-    
-//    UIView *view = [[UIView alloc] init];
-//    view.backgroundColor = [UIColor yellowColor];
-//    view.width = 200;
-//    view.heigth = 40;
-//    self.navigationItem.titleView = view;
+    [self setupNav];
 
-    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:@"MainTagSubIcon" highImage:@"MainTagSubIconClick" target:self action:@selector(buttonClicked)];
-    
-    //设置背景色
-    self.view.backgroundColor = WJGlobalBGColor;
+    [self setupTitlesView];
     
   
 }
+
+- (void)setupTitlesView
+{
+    UIView *titleView = [[UIView alloc] init];
+
+    titleView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.6];
+    titleView.width = self.view.width;
+    titleView.height = 35;
+    titleView.y = CGRectGetMaxY(self.navigationController.navigationBar.frame);
+    titleView.x = 0;
+    [self.view addSubview:titleView];
+    
+    //设置底部的指示器
+    UIView *indicatorView = [[UIView alloc] init];
+    indicatorView.backgroundColor = [UIColor redColor];
+    indicatorView.height = 2;
+    indicatorView.y = titleView.height - indicatorView.height;
+    [titleView addSubview:indicatorView];
+    self.indicatorView = indicatorView;
+    
+    //添加按钮
+    NSArray *titles = @[@"全部",@"视频",@"图片",@"段子",@"网红",@"美女",@"游戏"];
+    int count = 5;
+    CGFloat buttonWidth = titleView.width / count;
+    CGFloat buttonHeigth = titleView.height;
+    CGFloat buttonY = 0;
+    for (int i = 0; i < count; i++) {
+        UIButton *button = [[UIButton alloc] init];
+        button.width = buttonWidth;
+        button.height = buttonHeigth;
+        button.x = i * button.width;
+        button.y = buttonY;
+        [button setTitle:titles[i] forState:UIControlStateNormal];
+        button.titleLabel.font = [UIFont systemFontOfSize:14];
+        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor redColor] forState:UIControlStateDisabled];
+        [titleView addSubview:button];
+        [button addTarget:self action:@selector(titleButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+
+        
+        if (i == 0) {
+            [button layoutIfNeeded];
+            [self titleButtonClicked:button];
+        }
+    }
+    
+    
+}
+
+
+
+
+- (void)titleButtonClicked:(UIButton *)button
+{
+    self.selButton.enabled = YES;
+    button.enabled = NO;
+    self.selButton = button;
+    [UIView animateWithDuration:0.2f animations:^{
+        self.indicatorView.x = button.titleLabel.x + button.x;
+        self.indicatorView.width = button.titleLabel.width;
+    }];
+    
+
+}
+
+
 
 - (void)buttonClicked
 {
     WJRecommandTagController *tagVc= [[WJRecommandTagController alloc] init];
     [self.navigationController pushViewController:tagVc animated:YES];
 
+}
+
+
+- (void)setupNav
+{
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MainTitle"]];
+    
+    //    UIView *view = [[UIView alloc] init];
+    //    view.backgroundColor = [UIColor yellowColor];
+    //    view.width = 200;
+    //    view.heigth = 40;
+    //    self.navigationItem.titleView = view;
+    
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:@"MainTagSubIcon" highImage:@"MainTagSubIconClick" target:self action:@selector(buttonClicked)];
+    
+    //设置背景色
+    self.view.backgroundColor = WJGlobalBGColor;
 }
 
 - (void)didReceiveMemoryWarning {

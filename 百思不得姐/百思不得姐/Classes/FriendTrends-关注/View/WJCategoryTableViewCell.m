@@ -39,7 +39,7 @@
     
     //调整textlable从而显示底部分割线
     self.textLabel.y = 1;
-    self.textLabel.heigth = self.contentView.heigth - self.textLabel.y * 2;
+    self.textLabel.height = self.contentView.height - self.textLabel.y * 2;
     
 }
 
