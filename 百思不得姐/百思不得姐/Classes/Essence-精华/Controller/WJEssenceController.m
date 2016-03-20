@@ -206,12 +206,11 @@
 
 #pragma mark - UIScrollViewDelegate
 
-//- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-//{
-//    WJLog(@"%@",scrollView);
-//    [self scrollViewDidEndScrollingAnimation:scrollView];
-//
-//}
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [self scrollViewDidEndScrollingAnimation:scrollView];
+
+}
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
 {
