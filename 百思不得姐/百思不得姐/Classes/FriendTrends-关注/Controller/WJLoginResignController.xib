@@ -23,10 +23,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8u2-er-nTj">
-                    <rect key="frame" x="30" y="30" width="16" height="16"/>
+                    <rect key="frame" x="30" y="30" width="20" height="20"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="16" id="2bQ-oG-tI9"/>
-                        <constraint firstAttribute="height" constant="16" id="whF-tt-MIV"/>
+                        <constraint firstAttribute="width" constant="20" id="2bQ-oG-tI9"/>
+                        <constraint firstAttribute="height" constant="20" id="whF-tt-MIV"/>
                     </constraints>
                     <state key="normal" image="login_close_icon"/>
                     <connections>
@@ -34,7 +34,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LdU-Gq-kPu">
-                    <rect key="frame" x="470" y="24" width="100" height="29"/>
+                    <rect key="frame" x="470" y="26" width="100" height="29"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="100" id="V0h-vD-mKC"/>
                     </constraints>
@@ -145,13 +145,13 @@
                                     <rect key="frame" x="5" y="0.0" width="256" height="46"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                 </textField>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="设置密码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="PNO-lG-mRu" customClass="WJloginTextField">
                                     <rect key="frame" x="5" y="46" width="256" height="46"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
+                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 </textField>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -227,13 +227,13 @@
                                     <rect key="frame" x="5" y="0.0" width="256" height="46"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                 </textField>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="xaw-L6-vLC" customClass="WJloginTextField">
                                     <rect key="frame" x="5" y="46" width="256" height="46"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
+                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 </textField>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

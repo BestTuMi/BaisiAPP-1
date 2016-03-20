@@ -21,6 +21,12 @@
     
     
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MainTitle"]];
+    
+//    UIView *view = [[UIView alloc] init];
+//    view.backgroundColor = [UIColor yellowColor];
+//    view.width = 200;
+//    view.heigth = 40;
+//    self.navigationItem.titleView = view;
 
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:@"MainTagSubIcon" highImage:@"MainTagSubIconClick" target:self action:@selector(buttonClicked)];
     

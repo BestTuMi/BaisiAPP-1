@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "WJTabbarController.h"
+#import "WJPushGuide.h"
 
 @interface AppDelegate ()
 
@@ -26,6 +27,8 @@
     
     [self.window makeKeyAndVisible];
     
+    //显示提醒界面
+    [WJPushGuide show];
     
     return YES;
 }
