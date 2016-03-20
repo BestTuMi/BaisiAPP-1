@@ -8,8 +8,13 @@
 
 #import "WJEssenceController.h"
 #import "WJRecommandTagController.h"
+#import "WJAllViewController.h"
+#import "WJPictureViewController.h"
+#import "WJSoundViewController.h"
+#import "WJWordViewController.h"
+#import "WJVideoViewController.h"
 
-@interface WJEssenceController ()
+@interface WJEssenceController ()<UIScrollViewDelegate>
 
 
 /*标题栏底部的指示器*/
@@ -20,6 +25,9 @@
 
 /*指示条*/
 @property (nonatomic,weak) UIView *titleView;
+
+/*contentView*/
+@property (nonatomic,strong) UIScrollView *contentView;
 @end
 
 @implementation WJEssenceController
@@ -27,7 +35,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    [self addChildViewControllers];
     //初始化控制器的导航栏和背景
     [self setupNav];
 
@@ -36,7 +44,10 @@
     
     [self setupScrollView];
     
-    
+    //默认选中第一个标签
+    UIButton *button = [self.titleView viewWithTag:1];
+    [button layoutIfNeeded];
+    [self titleButtonClicked:button];
   
 }
 
@@ -46,24 +57,16 @@
     UIScrollView *contentView = [[UIScrollView alloc] init];
     
     contentView.frame = self.view.bounds;
-    [contentView.backgroundColor = [UIColor greenColor] colorWithAlphaComponent:0.3];
 
-    CGFloat top = CGRectGetMaxY(self.titleView.frame);
-    CGFloat bottom = self.tabBarController.tabBar.height;
-    contentView.contentInset = UIEdgeInsetsMake(top, 0, 0, bottom);
+    WJLog(@"%@",NSStringFromCGRect(self.view.bounds));
+
     [self.view insertSubview:contentView atIndex:0];
     
-    
-    //测试
-    UISwitch *swich = [[UISwitch alloc] init];
-    swich.backgroundColor = [UIColor yellowColor];
-    [contentView addSubview:swich];
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeContactAdd];
-    button.y = 800;
-    [contentView addSubview:button];
-    contentView.contentSize = CGSizeMake(400, 900);
-    
-    WJLog(@"%@",contentView);
+    contentView.contentSize = CGSizeMake(self.childViewControllers.count * contentView.width, 0);
+    contentView.delegate = self;
+    contentView.pagingEnabled = YES;
+    self.contentView = contentView;
+
 }
 
 - (void)setupTitlesView
@@ -104,12 +107,8 @@
         [button setTitleColor:[UIColor redColor] forState:UIControlStateDisabled];
         [titleView addSubview:button];
         [button addTarget:self action:@selector(titleButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        button.tag = i + 1;
 
-        
-        if (i == 0) {
-            [button layoutIfNeeded];
-            [self titleButtonClicked:button];
-        }
     }
     
     
@@ -120,6 +119,8 @@
 
 - (void)titleButtonClicked:(UIButton *)button
 {
+    
+
     self.selButton.enabled = YES;
     button.enabled = NO;
     self.selButton = button;
@@ -128,9 +129,50 @@
         self.indicatorView.width = button.titleLabel.width;
     }];
     
+    //让底部的contentView滚动
+    CGPoint contentOffset = self.contentView.contentOffset;
+    contentOffset.x = (button.tag - 1) * self.contentView.width;
+    [self.contentView setContentOffset:contentOffset animated:YES];
+
+    //添加子控制器
+    //取出控制器
+    UITableViewController *vc = self.childViewControllers[button.tag - 1];
+    vc.view.x = self.contentView.contentOffset.x;
+    vc.view.y = 0;
+    vc.view.height = self.view.height;
+    
+    WJLog(@"%@",NSStringFromUIEdgeInsets(vc.tableView.contentInset));
+    CGFloat top = CGRectGetMaxY(self.titleView.frame);
+    CGFloat bottom = self.tabBarController.tabBar.height;
+    WJLog(@"%f",bottom);
+    vc.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
+    
+    [self.contentView addSubview:vc.view];
+
+    
 
 }
 
+
+- (void)addChildViewControllers
+{
+    WJAllViewController *allVc = [[WJAllViewController alloc] init];
+
+    [self addChildViewController:allVc];
+    WJPictureViewController *picVc = [[WJPictureViewController alloc] init];
+    
+    [self addChildViewController:picVc];
+    WJSoundViewController *soundVc = [[WJSoundViewController alloc] init];
+    
+    [self addChildViewController:soundVc];
+    WJVideoViewController *videoVc = [[WJVideoViewController alloc] init];
+    
+    [self addChildViewController:videoVc];
+    WJWordViewController *wordVc = [[WJWordViewController alloc] init];
+    
+    [self addChildViewController:wordVc];
+
+}
 
 
 - (void)buttonClicked
@@ -162,6 +204,26 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - UIScrollViewDelegate
+
+//- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+//{
+//    WJLog(@"%@",scrollView);
+//    [self scrollViewDidEndScrollingAnimation:scrollView];
+//
+//}
+
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
+{
+    NSInteger index = scrollView.contentOffset.x / scrollView.width;
+    
+    UIButton *selButton = [self.titleView viewWithTag:index + 1];
+    
+    NSLog(@"%zd",index);
+    
+    [self titleButtonClicked:selButton];
+    WJLogFunc;
+}
 
 
 @end
