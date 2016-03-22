@@ -20,9 +20,23 @@ static NSString * cellID = @"cell";
     [super viewDidLoad];
 //    self.automaticallyAdjustsScrollViewInsets = NO;
 
-    self.tableView.y = 0;
-    WJLog(@"%@",NSStringFromCGRect(self.view.frame));
-    self.view.backgroundColor = [UIColor redColor];
+    [self setupViewController];
+}
+
+- (void)setupViewController
+{
+    
+    self.view.backgroundColor = [UIColor clearColor];
+    self.tableView.rowHeight = 60;
+    
+    WJLog(@"%@",NSStringFromUIEdgeInsets(self.tableView.contentInset));
+    CGFloat top = CGRectGetMaxY(self.navigationController.navigationBar.frame) + WJTitleViewHeight;
+    CGFloat bottom = self.tabBarController.tabBar.height;
+    WJLog(@"%f",bottom);
+    self.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
+    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

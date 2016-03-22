@@ -7,21 +7,139 @@
 //
 
 #import "WJWordViewController.h"
+#import <AFNetworking.h>
+#import <UIImageView+WebCache.h>
+#import <MJRefresh.h>
+#import <SVProgressHUD.h>
+#import <MJExtension.h>
+#import "WJTopic.h"
+
 
 @interface WJWordViewController ()
 
+@property (nonatomic,strong) AFHTTPSessionManager *manager;
+/**加载帖子的数据*/
+@property (nonatomic,strong) NSMutableArray *list;
+
+/*加载帖子的Maxtime*/
+@property (nonatomic,strong) NSString *maxtime;
 @end
 static NSString * cellID = @"cell";
 @implementation WJWordViewController
 
+- (AFHTTPSessionManager *)manager
+{
+    if (_manager == nil) {
+        _manager = [AFHTTPSessionManager manager];
+    }
+    return _manager;
+
+}
+
+- (NSMutableArray *)list
+{
+    if (_list == nil) {
+        _list = [NSMutableArray array];
+    }
+
+    return _list;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    [self setupViewController];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    [self setupRefresh];
+  
+}
+
+- (void)setupRefresh
+{
+    //顶部刷新条
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewTopics)];
+
+    //改变下拉刷新的透明度
+    self.tableView.mj_header.automaticallyChangeAlpha = YES;
+    [self.tableView.mj_header beginRefreshing];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    //底部刷新条
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];
+
+}
+
+- (void)loadNewTopics
+{
+    NSMutableDictionary *parmas = [NSMutableDictionary dictionary];
+    parmas[@"a"] = @"list";
+    parmas[@"c"] = @"data";
+    parmas[@"maxtime"] = self.maxtime;
+    parmas[@"type"] = @29;
+    parmas[@"page"] = @"0";
+    
+    [self.manager GET:BSURL parameters:parmas progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+
+        self.list = [WJTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
+    
+        self.maxtime = responseObject[@"info"][@"maxtime"];
+
+        [self.tableView reloadData];
+            
+        [self.tableView.mj_header endRefreshing];
+
+        
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [SVProgressHUD showErrorWithStatus:@"加载数据失败"];
+        [self.tableView.mj_header endRefreshing];
+    }];
+
+}
+
+- (void)loadMoreTopics
+{
+
+    NSMutableDictionary *parmas = [NSMutableDictionary dictionary];
+    parmas[@"a"] = @"list";
+    parmas[@"c"] = @"data";
+    parmas[@"maxtime"] = self.maxtime;
+    parmas[@"type"] = @29;
+
+    [self.manager GET:BSURL parameters:parmas progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        WJLog(@"%@",responseObject);
+
+        [self.list addObjectsFromArray:[WJTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]]];
+        
+        self.maxtime = responseObject[@"info"][@"maxtime"];
+
+        [self.tableView reloadData];
+            
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
+
+        
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [SVProgressHUD showErrorWithStatus:@"加载数据失败"];
+        [self.tableView.mj_header endRefreshing];
+    }];
+}
+
+- (void)setupViewController
+{
+    
+    self.view.backgroundColor = [UIColor clearColor];
+    self.tableView.rowHeight = 60;
+    
+    WJLog(@"%@",NSStringFromUIEdgeInsets(self.tableView.contentInset));
+    CGFloat top = CGRectGetMaxY(self.navigationController.navigationBar.frame) + WJTitleViewHeight;
+    CGFloat bottom = self.tabBarController.tabBar.height;
+    WJLog(@"%f",bottom);
+    self.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
+    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,7 +153,7 @@ static NSString * cellID = @"cell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 70;
+    return self.list.count;
 }
 
 
@@ -45,7 +163,12 @@ static NSString * cellID = @"cell";
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"%@--%zd",NSStringFromClass([self class]),indexPath.row];
+    
+    WJTopic *topic = self.list[indexPath.row];
+    
+    cell.textLabel.text = topic.name;
+    cell.detailTextLabel.text = topic.text;
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
     // Configure the cell...
     
     return cell;

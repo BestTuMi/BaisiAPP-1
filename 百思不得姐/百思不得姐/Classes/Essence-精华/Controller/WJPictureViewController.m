@@ -17,12 +17,23 @@ static NSString * cellID = @"cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor blueColor];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    [self setupViewController];
+}
+
+- (void)setupViewController
+{
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.view.backgroundColor = [UIColor clearColor];
+    self.tableView.rowHeight = 60;
+    
+    WJLog(@"%@",NSStringFromUIEdgeInsets(self.tableView.contentInset));
+    CGFloat top = CGRectGetMaxY(self.navigationController.navigationBar.frame) + WJTitleViewHeight;
+    CGFloat bottom = self.tabBarController.tabBar.height;
+    WJLog(@"%f",bottom);
+    self.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
+    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

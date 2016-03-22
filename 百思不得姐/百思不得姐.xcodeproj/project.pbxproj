@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9919F3F41CA19DDF00A08850 /* WJTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 9919F3F31CA19DDF00A08850 /* WJTopic.m */; };
+		9919F3F71CA1AC5100A08850 /* WJConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 9919F3F61CA1AC5100A08850 /* WJConstant.m */; };
 		992CEA191C9585B4002C8B2C /* WJEssenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 992CE9F31C9585B4002C8B2C /* WJEssenceController.m */; };
 		992CEA1A1C9585B4002C8B2C /* WJFriendTrendsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 992CE9F91C9585B4002C8B2C /* WJFriendTrendsController.m */; };
 		992CEA1B1C9585B4002C8B2C /* WJMeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 992CE9FF1C9585B4002C8B2C /* WJMeController.m */; };
@@ -67,6 +69,10 @@
 
 /* Begin PBXFileReference section */
 		666A991130BD79394BA63B0A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		9919F3F21CA19DDF00A08850 /* WJTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJTopic.h; sourceTree = "<group>"; };
+		9919F3F31CA19DDF00A08850 /* WJTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJTopic.m; sourceTree = "<group>"; };
+		9919F3F51CA1AC5100A08850 /* WJConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJConstant.h; sourceTree = "<group>"; };
+		9919F3F61CA1AC5100A08850 /* WJConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJConstant.m; sourceTree = "<group>"; };
 		992CE9F21C9585B4002C8B2C /* WJEssenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJEssenceController.h; sourceTree = "<group>"; };
 		992CE9F31C9585B4002C8B2C /* WJEssenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJEssenceController.m; sourceTree = "<group>"; };
 		992CE9F81C9585B4002C8B2C /* WJFriendTrendsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJFriendTrendsController.h; sourceTree = "<group>"; };
@@ -226,6 +232,8 @@
 			children = (
 				998CE9A31C9AFE9100CE5814 /* WJRecommendTag.h */,
 				998CE9A41C9AFE9100CE5814 /* WJRecommendTag.m */,
+				9919F3F21CA19DDF00A08850 /* WJTopic.h */,
+				9919F3F31CA19DDF00A08850 /* WJTopic.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -369,6 +377,8 @@
 				992CEA091C9585B4002C8B2C /* AppDelegate.h */,
 				992CEA0A1C9585B4002C8B2C /* AppDelegate.m */,
 				992CEA131C9585B4002C8B2C /* main.m */,
+				9919F3F51CA1AC5100A08850 /* WJConstant.h */,
+				9919F3F61CA1AC5100A08850 /* WJConstant.m */,
 			);
 			path = "other-其他";
 			sourceTree = "<group>";
@@ -680,6 +690,7 @@
 				997B49CC1C9D868100452F37 /* WJVerticalButton.m in Sources */,
 				992CEA1A1C9585B4002C8B2C /* WJFriendTrendsController.m in Sources */,
 				99C9834D1C9EE52100FA89C8 /* WJPictureViewController.m in Sources */,
+				9919F3F71CA1AC5100A08850 /* WJConstant.m in Sources */,
 				9971CDD01C99A55200DDCFF6 /* WJCategoryTableViewCell.m in Sources */,
 				992CEA191C9585B4002C8B2C /* WJEssenceController.m in Sources */,
 				998CE9A21C9AF69300CE5814 /* WJRecommandTagController.m in Sources */,
@@ -687,6 +698,7 @@
 				992CEA1F1C9585B4002C8B2C /* UIView+WJExtension.m in Sources */,
 				992CEA2A1C95A17D002C8B2C /* WJRecommendController.m in Sources */,
 				9971CDC71C99A55200DDCFF6 /* WJRecommondCategory.m in Sources */,
+				9919F3F41CA19DDF00A08850 /* WJTopic.m in Sources */,
 				998CE9A51C9AFE9100CE5814 /* WJRecommendTag.m in Sources */,
 				992CEA251C958C71002C8B2C /* WJNavigationController.m in Sources */,
 				992CEA201C9585B4002C8B2C /* WJTabbarController.m in Sources */,

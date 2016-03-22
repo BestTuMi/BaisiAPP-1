@@ -28,6 +28,8 @@
 
 /*contentView*/
 @property (nonatomic,strong) UIScrollView *contentView;
+
+
 @end
 
 @implementation WJEssenceController
@@ -75,9 +77,9 @@
 
     titleView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.6];
     titleView.width = self.view.width;
-    titleView.height = 35;
+    titleView.height = WJTitleViewHeight;
     titleView.y = CGRectGetMaxY(self.navigationController.navigationBar.frame);
-    titleView.x = 0;
+//    titleView.x = 0;
     [self.view addSubview:titleView];
     self.titleView = titleView;
     
@@ -90,7 +92,7 @@
     self.indicatorView = indicatorView;
     
     //添加按钮
-    NSArray *titles = @[@"全部",@"视频",@"图片",@"段子",@"网红",@"美女",@"游戏"];
+    NSArray *titles = @[@"全部",@"图片",@"声音",@"视频",@"段子"];
     int count = 5;
     CGFloat buttonWidth = titleView.width / count;
     CGFloat buttonHeigth = titleView.height;
@@ -119,8 +121,6 @@
 
 - (void)titleButtonClicked:(UIButton *)button
 {
-    
-
     self.selButton.enabled = YES;
     button.enabled = NO;
     self.selButton = button;
@@ -134,6 +134,7 @@
     contentOffset.x = (button.tag - 1) * self.contentView.width;
     [self.contentView setContentOffset:contentOffset animated:YES];
 
+
     //添加子控制器
     //取出控制器
     UITableViewController *vc = self.childViewControllers[button.tag - 1];
@@ -141,15 +142,15 @@
     vc.view.y = 0;
     vc.view.height = self.view.height;
     
-    WJLog(@"%@",NSStringFromUIEdgeInsets(vc.tableView.contentInset));
-    CGFloat top = CGRectGetMaxY(self.titleView.frame);
-    CGFloat bottom = self.tabBarController.tabBar.height;
-    WJLog(@"%f",bottom);
-    vc.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
-    
+//    WJLog(@"%@",NSStringFromUIEdgeInsets(vc.tableView.contentInset));
+//    CGFloat top = CGRectGetMaxY(self.titleView.frame);
+//    CGFloat bottom = self.tabBarController.tabBar.height;
+//    WJLog(@"%f",bottom);
+//    vc.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
+//    vc.tableView.scrollIndicatorInsets = vc.tableView.contentInset;
     [self.contentView addSubview:vc.view];
 
-    
+
 
 }
 
