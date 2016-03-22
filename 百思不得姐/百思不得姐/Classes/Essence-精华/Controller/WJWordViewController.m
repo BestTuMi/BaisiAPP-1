@@ -70,29 +70,10 @@ static NSString * cellID = @"cell";
 
 - (void)loadNewTopics
 {
-    NSMutableDictionary *parmas = [NSMutableDictionary dictionary];
-    parmas[@"a"] = @"list";
-    parmas[@"c"] = @"data";
-    parmas[@"maxtime"] = self.maxtime;
-    parmas[@"type"] = @29;
-    parmas[@"page"] = @"0";
-    
-    [self.manager GET:BSURL parameters:parmas progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    self.maxtime = nil;
 
-        self.list = [WJTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
-    
-        self.maxtime = responseObject[@"info"][@"maxtime"];
-
-        [self.tableView reloadData];
-            
-        [self.tableView.mj_header endRefreshing];
-
-        
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [SVProgressHUD showErrorWithStatus:@"加载数据失败"];
-        [self.tableView.mj_header endRefreshing];
-    }];
+    [self.list removeAllObjects];
+    [self loadMoreTopics];
 
 }
 
@@ -117,12 +98,11 @@ static NSString * cellID = @"cell";
             
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
-
-        
-        
+  
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [SVProgressHUD showErrorWithStatus:@"加载数据失败"];
         [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
     }];
 }
 
