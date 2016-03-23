@@ -27,7 +27,10 @@
 @implementation WJTopicCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    
+    UIImageView *bgView = [[UIImageView alloc] init];
+    bgView.image = [UIImage imageNamed:@"mainCellBackground"];
+    self.backgroundView = bgView;
 }
 
 
@@ -41,8 +44,6 @@
     
     [self.profile_imageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
     
-//    self.profile_imageView.layer.cornerRadius = self.profile_imageView.bounds.size.width * 0.5;
-//    self.profile_imageView.layer.masksToBounds = YES;
     [self.ding setTitle:[NSString stringWithFormat:@"%zd",topic.ding] forState:UIControlStateNormal];
     [self.cai setTitle:[NSString stringWithFormat:@"%zd",topic.cai] forState:UIControlStateNormal];
     [self.repost setTitle:[NSString stringWithFormat:@"%zd",topic.repost] forState:UIControlStateNormal];
@@ -51,9 +52,13 @@
 
 - (void)setFrame:(CGRect)frame
 {
-    frame.origin.x = 5;
-    frame.size.width -= 10;
-    frame.size.height -= 3;
+    
+    CGFloat margin = 8;
+    
+//    frame.origin.x = margin * 0.5;
+//    frame.size.width -= 2 * frame.origin.x;
+    frame.size.height -= margin;
+    frame.origin.y += margin;
     [super setFrame:frame];
 }
 
