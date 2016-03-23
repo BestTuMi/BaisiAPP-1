@@ -75,7 +75,7 @@
 {
     UIView *titleView = [[UIView alloc] init];
 
-    titleView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.6];
+    titleView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.7];
     titleView.width = self.view.width;
     titleView.height = WJTitleViewHeight;
     titleView.y = CGRectGetMaxY(self.navigationController.navigationBar.frame);

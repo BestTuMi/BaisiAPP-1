@@ -27,6 +27,8 @@
 /** 转发的人数 */
 @property (nonatomic,assign) NSInteger repost;
 
+/*评论数*/
+@property (nonatomic,assign) NSInteger comment;
 /*文本内容*/
 @property (nonatomic,copy) NSString *text;
 

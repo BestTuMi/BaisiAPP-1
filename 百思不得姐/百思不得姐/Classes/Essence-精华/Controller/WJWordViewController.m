@@ -13,6 +13,7 @@
 #import <SVProgressHUD.h>
 #import <MJExtension.h>
 #import "WJTopic.h"
+#import "WJTopicCell.h"
 
 
 @interface WJWordViewController ()
@@ -24,7 +25,7 @@
 /*加载帖子的Maxtime*/
 @property (nonatomic,strong) NSString *maxtime;
 @end
-static NSString * cellID = @"cell";
+static NSString * cellID = @"TopicCell";
 @implementation WJWordViewController
 
 - (AFHTTPSessionManager *)manager
@@ -110,7 +111,7 @@ static NSString * cellID = @"cell";
 {
     
     self.view.backgroundColor = [UIColor clearColor];
-    self.tableView.rowHeight = 60;
+    self.tableView.rowHeight = 150;
     
     WJLog(@"%@",NSStringFromUIEdgeInsets(self.tableView.contentInset));
     CGFloat top = CGRectGetMaxY(self.navigationController.navigationBar.frame) + WJTitleViewHeight;
@@ -118,6 +119,10 @@ static NSString * cellID = @"cell";
     WJLog(@"%f",bottom);
     self.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+    
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([WJTopicCell class]) bundle:nil] forCellReuseIdentifier:cellID];
 
 
 }
@@ -138,18 +143,23 @@ static NSString * cellID = @"cell";
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+//    
+//    if (cell == nil) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
+//    }
+//    
+//    WJTopic *topic = self.list[indexPath.row];
+//    
+//    cell.textLabel.text = topic.name;
+//    cell.detailTextLabel.text = topic.text;
+//    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
+//    // Configure the cell...
     
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
-    }
+    WJTopicCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     
     WJTopic *topic = self.list[indexPath.row];
-    
-    cell.textLabel.text = topic.name;
-    cell.detailTextLabel.text = topic.text;
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
-    // Configure the cell...
+    cell.topic = topic;
     
     return cell;
 }
