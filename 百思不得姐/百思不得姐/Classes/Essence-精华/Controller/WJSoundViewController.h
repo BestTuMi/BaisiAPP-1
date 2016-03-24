@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface WJSoundViewController : UITableViewController
+#import "WJBaseTopicViewController.h"
+@interface WJSoundViewController : WJBaseTopicViewController
 
 @end

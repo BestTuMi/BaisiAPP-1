@@ -10,19 +10,43 @@
 
 @implementation WJTopic
 
-- (void)setCreate_time:(NSString *)create_time
-{
-    _create_time = create_time;
 
-    NSDate *now = [NSDate date];
+- (NSString *)create_time
+{
     //获取日期
     NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
     fmt.dateFormat = @"yyyy-MM-dd HH:mm:ss";
-    NSDate *create = [fmt dateFromString:create_time];
+    NSDate *create = [fmt dateFromString:_create_time];
     
-    WJLog(@"%@",[now deltaFrom:create]);
+    if (create.isThisYear) {
+        if (create.isToday) {
+            NSDateComponents *cmps = [[NSDate date] deltaFrom:create];
+            if (cmps.hour >= 1) {
+                return [NSString stringWithFormat:@"%zd小时前",cmps.hour];
+            }else if(cmps.minute >=1)
+            {
+                return [NSString stringWithFormat:@"%zd分钟前",cmps.minute];
+            }else
+            {
+                return @"刚刚";
+            }
+            
+        } else if(create.isYesterday)
+        {
+            fmt.dateFormat = @"昨天 HH:mm:ss";
+            return [fmt stringFromDate:create];
+        }else
+        {
+            fmt.dateFormat = @"MM-dd HH:mm:ss";
+            return [fmt stringFromDate:create];
+        }
+    }
+    else
+    {
+        return _create_time;
+    }
+    
 
-    
 }
 
 

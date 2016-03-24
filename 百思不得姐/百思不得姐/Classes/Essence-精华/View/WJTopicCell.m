@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *repost;
 @property (weak, nonatomic) IBOutlet UIButton *conmmentButton;
 
+@property (weak, nonatomic) IBOutlet UIImageView *sina_vView;
 @end
 
 @implementation WJTopicCell
@@ -43,7 +44,7 @@
     self.nameBLabel.text = topic.name;
     self.create_timeLabel.text = topic.create_time;
     
-    
+    self.sina_vView.hidden = !topic.isSina_V;
     [self.profile_imageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
     
     [self setButtonTitle:self.ding count:topic.ding placeholder:@"顶"];

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WJBaseTopicViewController.h"
 
-@interface WJVideoViewController : UITableViewController
+@interface WJVideoViewController : WJBaseTopicViewController
 
 @end

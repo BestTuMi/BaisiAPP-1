@@ -148,11 +148,20 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profile_AddV_authen" translatesAutoresizingMaskIntoConstraints="NO" id="xBN-HU-4oH">
+                        <rect key="frame" x="30" y="30" width="10" height="10"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="5pM-KE-QcT"/>
+                            <constraint firstAttribute="width" constant="10" id="Z5X-FX-QU4"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="xBN-HU-4oH" firstAttribute="leading" secondItem="oSQ-sO-dFi" secondAttribute="leading" id="1Ck-Ve-27U"/>
                     <constraint firstItem="oSQ-sO-dFi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="5FU-7r-zIM"/>
                     <constraint firstAttribute="trailing" secondItem="3HD-fa-JBU" secondAttribute="trailing" id="BcH-NH-fHe"/>
                     <constraint firstAttribute="trailing" secondItem="Fru-p0-8Nm" secondAttribute="trailing" constant="10" id="HbV-1v-qyd"/>
+                    <constraint firstItem="xBN-HU-4oH" firstAttribute="bottom" secondItem="oSQ-sO-dFi" secondAttribute="bottom" id="Shz-yC-46I"/>
                     <constraint firstItem="Fru-p0-8Nm" firstAttribute="centerY" secondItem="oSQ-sO-dFi" secondAttribute="centerY" id="UcI-9G-yhX"/>
                     <constraint firstItem="oSQ-sO-dFi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="WiZ-mv-np8"/>
                     <constraint firstItem="nKx-Ec-upD" firstAttribute="trailing" secondItem="ZXZ-fS-22B" secondAttribute="trailing" id="Xyj-IO-G6q"/>
@@ -160,10 +169,16 @@
                     <constraint firstItem="Fru-p0-8Nm" firstAttribute="leading" secondItem="ZXZ-fS-22B" secondAttribute="trailing" constant="10" id="ab3-qe-ufx"/>
                     <constraint firstAttribute="bottom" secondItem="3HD-fa-JBU" secondAttribute="bottom" id="eyU-zH-wPK"/>
                     <constraint firstItem="ZXZ-fS-22B" firstAttribute="top" secondItem="oSQ-sO-dFi" secondAttribute="top" id="gqb-b4-Lel"/>
+                    <constraint firstItem="xBN-HU-4oH" firstAttribute="trailing" secondItem="oSQ-sO-dFi" secondAttribute="trailing" id="iR1-jX-tG9"/>
                     <constraint firstItem="nKx-Ec-upD" firstAttribute="leading" secondItem="ZXZ-fS-22B" secondAttribute="leading" id="tlt-89-bY9"/>
                     <constraint firstItem="3HD-fa-JBU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="yFR-i3-4Qk"/>
                     <constraint firstItem="ZXZ-fS-22B" firstAttribute="leading" secondItem="oSQ-sO-dFi" secondAttribute="trailing" constant="10" id="zF6-DV-1tr"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="1Ck-Ve-27U"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="cai" destination="5F6-qj-gu9" id="lrh-Vk-lGf"/>
@@ -173,11 +188,13 @@
                 <outlet property="nameBLabel" destination="ZXZ-fS-22B" id="tOB-J9-E8Q"/>
                 <outlet property="profile_imageView" destination="oSQ-sO-dFi" id="rD8-P7-tVP"/>
                 <outlet property="repost" destination="LOK-Ic-fa2" id="lqY-rF-FDO"/>
+                <outlet property="sina_vView" destination="xBN-HU-4oH" id="r1K-4a-HMQ"/>
             </connections>
             <point key="canvasLocation" x="292" y="356.5"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="Profile_AddV_authen" width="14" height="14"/>
         <image name="cell-button-line" width="1" height="29"/>
         <image name="cellmorebtnclickN" width="24" height="20"/>
         <image name="cellmorebtnnormal~iphone" width="24" height="20"/>

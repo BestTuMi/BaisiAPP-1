@@ -35,4 +35,7 @@
 /*头像URL*/
 @property (nonatomic,copy) NSString *profile_image;
 
+
+/*是否为新浪会员*/
+@property (nonatomic,assign,getter=isSina_V) BOOL *sina_v;
 @end

@@ -14,53 +14,15 @@
 static NSString * cellID = @"cell";
 @implementation WJSoundViewController
 
+- (WJTopicType)type
+{
+    return WJTopeTypeSound;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setupViewController];
-}
-
-- (void)setupViewController
-{
     
-    self.view.backgroundColor = [UIColor clearColor];
-    self.tableView.rowHeight = 60;
-    
-    WJLog(@"%@",NSStringFromUIEdgeInsets(self.tableView.contentInset));
-    CGFloat top = CGRectGetMaxY(self.navigationController.navigationBar.frame) + WJTitleViewHeight;
-    CGFloat bottom = self.tabBarController.tabBar.height;
-    WJLog(@"%f",bottom);
-    self.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
-    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
-    
-    
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Table view data source
-
-
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    return 70;
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
-    }
-    cell.textLabel.text = [NSString stringWithFormat:@"%@--%zd",NSStringFromClass([self class]),indexPath.row];
-    // Configure the cell...
-    
-    return cell;
 }
 
 @end
