@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *cai;
 @property (weak, nonatomic) IBOutlet UIButton *repost;
 @property (weak, nonatomic) IBOutlet UIButton *conmmentButton;
+@property (weak, nonatomic) IBOutlet UILabel *text_label;
 
 @property (weak, nonatomic) IBOutlet UIImageView *sina_vView;
 @end
@@ -46,6 +47,8 @@
     
     self.sina_vView.hidden = !topic.isSina_V;
     [self.profile_imageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
+    
+    self.text_label.text = topic.text;
     
     [self setButtonTitle:self.ding count:topic.ding placeholder:@"顶"];
     [self setButtonTitle:self.cai count:topic.cai placeholder:@"踩"];

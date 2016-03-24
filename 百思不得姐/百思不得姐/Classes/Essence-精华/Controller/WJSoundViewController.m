@@ -14,10 +14,6 @@
 static NSString * cellID = @"cell";
 @implementation WJSoundViewController
 
-- (WJTopicType)type
-{
-    return WJTopeTypeSound;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

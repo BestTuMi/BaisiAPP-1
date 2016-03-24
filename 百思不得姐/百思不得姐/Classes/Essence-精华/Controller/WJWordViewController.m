@@ -14,10 +14,5 @@
 
 @implementation WJWordViewController
 
-- (WJTopicType)type
-{
-    return WJTopeTypeWord;
-
-}
 
 @end

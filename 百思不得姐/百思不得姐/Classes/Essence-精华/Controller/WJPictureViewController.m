@@ -15,11 +15,7 @@
 @implementation WJPictureViewController
 
 
-- (WJTopicType)type
-{
-    return WJTopeTypePicture;
 
-}
 - (void)viewDidLoad {
     [super viewDidLoad];
     

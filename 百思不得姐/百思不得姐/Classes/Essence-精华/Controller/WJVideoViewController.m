@@ -14,10 +14,6 @@
 
 @implementation WJVideoViewController
 
-- (WJTopicType)type
-{
-    return WJTopeTypeVideo;
 
-}
 
 @end

@@ -13,6 +13,7 @@
 #import "WJSoundViewController.h"
 #import "WJWordViewController.h"
 #import "WJVideoViewController.h"
+#import "WJBaseTopicViewController.h"
 
 @interface WJEssenceController ()<UIScrollViewDelegate>
 
@@ -149,20 +150,25 @@
 
 - (void)addChildViewControllers
 {
-    WJWordViewController *wordVc = [[WJWordViewController alloc] init];
+    WJBaseTopicViewController *wordVc = [[WJWordViewController alloc] init];
     wordVc.title = @"段子";
+    wordVc.type = WJTopeTypeWord;
     [self addChildViewController:wordVc];
-    WJAllViewController *allVc = [[WJAllViewController alloc] init];
+    WJBaseTopicViewController *allVc = [[WJAllViewController alloc] init];
     allVc.title = @"全部";
+    allVc.type = WJTopeTypeAll;
     [self addChildViewController:allVc];
-    WJPictureViewController *picVc = [[WJPictureViewController alloc] init];
+    WJBaseTopicViewController *picVc = [[WJPictureViewController alloc] init];
     picVc.title = @"图片";
+    picVc.type = WJTopeTypePicture;
     [self addChildViewController:picVc];
-    WJSoundViewController *soundVc = [[WJSoundViewController alloc] init];
+    WJBaseTopicViewController *soundVc = [[WJSoundViewController alloc] init];
     soundVc.title = @"声音";
+    soundVc.type = WJTopeTypeSound;
     [self addChildViewController:soundVc];
-    WJVideoViewController *videoVc = [[WJVideoViewController alloc] init];
+    WJBaseTopicViewController *videoVc = [[WJVideoViewController alloc] init];
     videoVc.title = @"视频";
+    videoVc.type = WJTopeTypeVideo;
     [self addChildViewController:videoVc];
 
 }

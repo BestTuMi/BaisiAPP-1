@@ -55,10 +55,6 @@ static NSString * cellID = @"TopicCell";
     
 }
 
-- (WJTopicType)type
-{
-    return WJTopeTypeAll;
-}
 
 - (void)setupRefresh
 {
@@ -114,7 +110,7 @@ static NSString * cellID = @"TopicCell";
 {
     
     self.view.backgroundColor = [UIColor clearColor];
-    self.tableView.rowHeight = 150;
+//    self.tableView.rowHeight = 150;
     
     CGFloat top = CGRectGetMaxY(self.navigationController.navigationBar.frame) + WJTitleViewHeight;
     CGFloat bottom = self.tabBarController.tabBar.height;
@@ -154,6 +150,17 @@ static NSString * cellID = @"TopicCell";
     cell.topic = topic;
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    WJTopic *topic = self.list[indexPath.row];
+    CGFloat top = 50;
+    CGFloat bottom = 40;
+    CGSize maxsize = CGSizeMake([UIScreen mainScreen].bounds.size.width - 20, MAXFLOAT);
+    CGFloat textH = [topic.text boundingRectWithSize:maxsize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]} context:nil].size.height;
+    return textH + top + bottom + 10;
+
 }
 
 @end

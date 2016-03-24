@@ -20,6 +20,7 @@ typedef enum
 
 @interface WJBaseTopicViewController : UITableViewController
 
-- (WJTopicType)type;
+
+@property (nonatomic,assign) WJTopicType type;
 
 @end
