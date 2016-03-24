@@ -158,7 +158,7 @@ static NSString * cellID = @"TopicCell";
     CGFloat top = 50;
     CGFloat bottom = 40;
     CGSize maxsize = CGSizeMake([UIScreen mainScreen].bounds.size.width - 20, MAXFLOAT);
-    CGFloat textH = [topic.text boundingRectWithSize:maxsize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]} context:nil].size.height;
+    CGFloat textH = [topic.text boundingRectWithSize:maxsize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17]} context:nil].size.height;
     return textH + top + bottom + 10;
 
 }
