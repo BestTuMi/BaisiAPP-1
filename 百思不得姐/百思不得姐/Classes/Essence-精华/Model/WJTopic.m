@@ -10,4 +10,20 @@
 
 @implementation WJTopic
 
+- (void)setCreate_time:(NSString *)create_time
+{
+    _create_time = create_time;
+
+    NSDate *now = [NSDate date];
+    //获取日期
+    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
+    fmt.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    NSDate *create = [fmt dateFromString:create_time];
+    
+    WJLog(@"%@",[now deltaFrom:create]);
+
+    
+}
+
+
 @end

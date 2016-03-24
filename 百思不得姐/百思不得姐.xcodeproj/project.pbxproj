@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		990E465E1CA3FC8900663CB5 /* NSDate+WJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 990E465D1CA3FC8900663CB5 /* NSDate+WJExtension.m */; };
 		9919F3F41CA19DDF00A08850 /* WJTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 9919F3F31CA19DDF00A08850 /* WJTopic.m */; };
 		9919F3F71CA1AC5100A08850 /* WJConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 9919F3F61CA1AC5100A08850 /* WJConstant.m */; };
 		992CEA191C9585B4002C8B2C /* WJEssenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 992CE9F31C9585B4002C8B2C /* WJEssenceController.m */; };
@@ -71,6 +72,8 @@
 
 /* Begin PBXFileReference section */
 		666A991130BD79394BA63B0A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		990E465C1CA3FC8900663CB5 /* NSDate+WJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+WJExtension.h"; sourceTree = "<group>"; };
+		990E465D1CA3FC8900663CB5 /* NSDate+WJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+WJExtension.m"; sourceTree = "<group>"; };
 		9919F3F21CA19DDF00A08850 /* WJTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJTopic.h; sourceTree = "<group>"; };
 		9919F3F31CA19DDF00A08850 /* WJTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJTopic.m; sourceTree = "<group>"; };
 		9919F3F51CA1AC5100A08850 /* WJConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJConstant.h; sourceTree = "<group>"; };
@@ -398,6 +401,8 @@
 				992CEA0D1C9585B4002C8B2C /* UIBarButtonItem+WJExtension.m */,
 				992CEA0E1C9585B4002C8B2C /* UIView+WJExtension.h */,
 				992CEA0F1C9585B4002C8B2C /* UIView+WJExtension.m */,
+				990E465C1CA3FC8900663CB5 /* NSDate+WJExtension.h */,
+				990E465D1CA3FC8900663CB5 /* NSDate+WJExtension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -714,6 +719,7 @@
 				992CEA201C9585B4002C8B2C /* WJTabbarController.m in Sources */,
 				9971CDD51C99A55200DDCFF6 /* WJRecommondUserCell.m in Sources */,
 				992CEA1E1C9585B4002C8B2C /* UIBarButtonItem+WJExtension.m in Sources */,
+				990E465E1CA3FC8900663CB5 /* NSDate+WJExtension.m in Sources */,
 				99C9834A1C9EE51400FA89C8 /* WJAllViewController.m in Sources */,
 				992CEA1C1C9585B4002C8B2C /* WJNewController.m in Sources */,
 				992CEA211C9585B4002C8B2C /* main.m in Sources */,

@@ -91,19 +91,19 @@
     [titleView addSubview:indicatorView];
     self.indicatorView = indicatorView;
     
-    //添加按钮
-    NSArray *titles = @[@"全部",@"图片",@"声音",@"视频",@"段子"];
-    int count = 5;
+
+    NSUInteger count = self.childViewControllers.count;
     CGFloat buttonWidth = titleView.width / count;
     CGFloat buttonHeigth = titleView.height;
     CGFloat buttonY = 0;
+    
     for (int i = 0; i < count; i++) {
         UIButton *button = [[UIButton alloc] init];
         button.width = buttonWidth;
         button.height = buttonHeigth;
         button.x = i * button.width;
         button.y = buttonY;
-        [button setTitle:titles[i] forState:UIControlStateNormal];
+        [button setTitle:self.childViewControllers[i].title forState:UIControlStateNormal];
         button.titleLabel.font = [UIFont systemFontOfSize:14];
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor redColor] forState:UIControlStateDisabled];
@@ -142,36 +142,28 @@
     vc.view.y = 0;
     vc.view.height = self.view.height;
     
-//    WJLog(@"%@",NSStringFromUIEdgeInsets(vc.tableView.contentInset));
-//    CGFloat top = CGRectGetMaxY(self.titleView.frame);
-//    CGFloat bottom = self.tabBarController.tabBar.height;
-//    WJLog(@"%f",bottom);
-//    vc.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
-//    vc.tableView.scrollIndicatorInsets = vc.tableView.contentInset;
     [self.contentView addSubview:vc.view];
-
-
 
 }
 
 
 - (void)addChildViewControllers
 {
+    WJWordViewController *wordVc = [[WJWordViewController alloc] init];
+    wordVc.title = @"段子";
+    [self addChildViewController:wordVc];
     WJAllViewController *allVc = [[WJAllViewController alloc] init];
-
+    allVc.title = @"全部";
     [self addChildViewController:allVc];
     WJPictureViewController *picVc = [[WJPictureViewController alloc] init];
-    
+    picVc.title = @"图片";
     [self addChildViewController:picVc];
     WJSoundViewController *soundVc = [[WJSoundViewController alloc] init];
-    
+    soundVc.title = @"声音";
     [self addChildViewController:soundVc];
     WJVideoViewController *videoVc = [[WJVideoViewController alloc] init];
-    
+    videoVc.title = @"视频";
     [self addChildViewController:videoVc];
-    WJWordViewController *wordVc = [[WJWordViewController alloc] init];
-    
-    [self addChildViewController:wordVc];
 
 }
 
@@ -188,12 +180,7 @@
 {
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MainTitle"]];
     
-    //    UIView *view = [[UIView alloc] init];
-    //    view.backgroundColor = [UIColor yellowColor];
-    //    view.width = 200;
-    //    view.heigth = 40;
-    //    self.navigationItem.titleView = view;
-    
+
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:@"MainTagSubIcon" highImage:@"MainTagSubIconClick" target:self action:@selector(buttonClicked)];
     
     //设置背景色
@@ -219,10 +206,8 @@
     
     UIButton *selButton = [self.titleView viewWithTag:index + 1];
     
-    NSLog(@"%zd",index);
-    
     [self titleButtonClicked:selButton];
-    WJLogFunc;
+  
 }
 
 

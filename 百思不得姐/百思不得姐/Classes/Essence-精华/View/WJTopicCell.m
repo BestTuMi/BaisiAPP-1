@@ -31,6 +31,8 @@
     UIImageView *bgView = [[UIImageView alloc] init];
     bgView.image = [UIImage imageNamed:@"mainCellBackground"];
     self.backgroundView = bgView;
+    
+    
 }
 
 
@@ -44,12 +46,26 @@
     
     [self.profile_imageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
     
-    [self.ding setTitle:[NSString stringWithFormat:@"%zd",topic.ding] forState:UIControlStateNormal];
-    [self.cai setTitle:[NSString stringWithFormat:@"%zd",topic.cai] forState:UIControlStateNormal];
-    [self.repost setTitle:[NSString stringWithFormat:@"%zd",topic.repost] forState:UIControlStateNormal];
-    [self.conmmentButton setTitle:[NSString stringWithFormat:@"%zd",topic.comment] forState:UIControlStateNormal];
+    [self setButtonTitle:self.ding count:topic.ding placeholder:@"顶"];
+    [self setButtonTitle:self.cai count:topic.cai placeholder:@"踩"];
+    [self setButtonTitle:self.repost count:topic.repost placeholder:@"转发"];
+    [self setButtonTitle:self.conmmentButton count:topic.comment placeholder:@"评论"];
 }
 
+
+- (void)setButtonTitle:(UIButton *)button count:(NSInteger)count placeholder:(NSString *)str
+{
+
+    if (count > 10000) {
+        str = [NSString stringWithFormat:@"%0.1f万",count / 10000.0];
+    }
+    else if(count > 0)
+    {
+        str = [NSString stringWithFormat:@"%zd",count];
+    }
+    
+    [button setTitle:str forState:UIControlStateNormal];
+}
 - (void)setFrame:(CGRect)frame
 {
     

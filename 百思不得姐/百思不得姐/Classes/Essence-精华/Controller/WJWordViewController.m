@@ -89,7 +89,7 @@ static NSString * cellID = @"TopicCell";
 
     [self.manager GET:BSURL parameters:parmas progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
-        WJLog(@"%@",responseObject);
+//        WJLog(@"%@",responseObject);
 
         [self.list addObjectsFromArray:[WJTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]]];
         
@@ -113,10 +113,9 @@ static NSString * cellID = @"TopicCell";
     self.view.backgroundColor = [UIColor clearColor];
     self.tableView.rowHeight = 150;
     
-    WJLog(@"%@",NSStringFromUIEdgeInsets(self.tableView.contentInset));
     CGFloat top = CGRectGetMaxY(self.navigationController.navigationBar.frame) + WJTitleViewHeight;
     CGFloat bottom = self.tabBarController.tabBar.height;
-    WJLog(@"%f",bottom);
+
     self.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     
@@ -143,18 +142,7 @@ static NSString * cellID = @"TopicCell";
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-//    
-//    if (cell == nil) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
-//    }
-//    
-//    WJTopic *topic = self.list[indexPath.row];
-//    
-//    cell.textLabel.text = topic.name;
-//    cell.detailTextLabel.text = topic.text;
-//    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
-//    // Configure the cell...
+
     
     WJTopicCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     
