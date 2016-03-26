@@ -63,4 +63,7 @@
 /** 图片控件的frame */
 @property (nonatomic,assign,readonly) CGRect pictureFrame;
 
+/** 是否为长图 */
+@property (nonatomic,assign,getter=isBigImage) BOOL bigImage;
+
 @end

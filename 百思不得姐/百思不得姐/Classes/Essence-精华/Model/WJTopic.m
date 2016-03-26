@@ -76,10 +76,15 @@
         _rowHeight = textH + WJTopicTextX + WJTopicMargin;
         if (self.type == WJTopeTypePicture) {
             
+
             CGFloat picW = maxWidth;
             CGFloat picH = self.height * maxWidth / self.width;
             CGFloat picX = WJTopicMargin;
             CGFloat picY = _rowHeight;
+            if (picH > WJTopicPictureMaxHeight) {
+                picH = WJTopicPictureNormalHeight;
+                self.bigImage = YES;//是大图
+            }
             _pictureFrame = CGRectMake(picX, picY, picW, picH);
             _rowHeight += (picH + WJTopicMargin);
         }

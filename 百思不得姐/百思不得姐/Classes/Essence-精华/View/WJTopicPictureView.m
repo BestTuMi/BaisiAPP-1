@@ -42,13 +42,15 @@
     NSString *extension = topic.large_image.pathExtension;
     self.gifView.hidden = ![extension.lowercaseString isEqualToString:@"gif"];
    
-    if (topic.pictureFrame.size.height > WJTopicPictureMaxHeight) {
+    if (topic.isBigImage) {
         self.seeBigButton.hidden = NO;
+        self.imageView.contentMode = UIViewContentModeScaleAspectFill;
     }
     else
     {
         self.seeBigButton.hidden = YES;
     
+        self.imageView.contentMode = UIViewContentModeScaleToFill;
     }
     
     

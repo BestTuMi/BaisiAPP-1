@@ -150,6 +150,10 @@
 
 - (void)addChildViewControllers
 {
+    WJBaseTopicViewController *picVc = [[WJPictureViewController alloc] init];
+    picVc.title = @"图片";
+    picVc.type = WJTopeTypePicture;
+    [self addChildViewController:picVc];
     WJBaseTopicViewController *wordVc = [[WJWordViewController alloc] init];
     wordVc.title = @"段子";
     wordVc.type = WJTopeTypeWord;
@@ -158,10 +162,6 @@
     allVc.title = @"全部";
     allVc.type = WJTopeTypeAll;
     [self addChildViewController:allVc];
-    WJBaseTopicViewController *picVc = [[WJPictureViewController alloc] init];
-    picVc.title = @"图片";
-    picVc.type = WJTopeTypePicture;
-    [self addChildViewController:picVc];
     WJBaseTopicViewController *soundVc = [[WJSoundViewController alloc] init];
     soundVc.title = @"声音";
     soundVc.type = WJTopeTypeSound;
