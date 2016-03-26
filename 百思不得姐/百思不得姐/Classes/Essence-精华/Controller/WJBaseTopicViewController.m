@@ -23,6 +23,9 @@
 
 /*加载帖子的Maxtime*/
 @property (nonatomic,strong) NSString *maxtime;
+
+/** 记录上一次的请求 */
+@property (nonatomic,strong) NSMutableDictionary *parmas;
 @end
 
 static NSString * cellID = @"TopicCell";
@@ -87,6 +90,7 @@ static NSString * cellID = @"TopicCell";
     parmas[@"c"] = @"data";
     parmas[@"maxtime"] = self.maxtime;
     parmas[@"type"] = @(self.type);
+    self.parmas = parmas;
     
     [self.manager GET:BSURL parameters:parmas progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
@@ -94,10 +98,14 @@ static NSString * cellID = @"TopicCell";
         
         self.maxtime = responseObject[@"info"][@"maxtime"];
         
-        [self.tableView reloadData];
-        
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
+        
+        if (parmas != self.parmas) return;
+        
+        [self.tableView reloadData];
+        
+
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [SVProgressHUD showErrorWithStatus:@"加载数据失败"];
@@ -155,11 +163,8 @@ static NSString * cellID = @"TopicCell";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     WJTopic *topic = self.list[indexPath.row];
-    CGFloat top = 50;
-    CGFloat bottom = 40;
-    CGSize maxsize = CGSizeMake([UIScreen mainScreen].bounds.size.width - 20, MAXFLOAT);
-    CGFloat textH = [topic.text boundingRectWithSize:maxsize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17]} context:nil].size.height;
-    return textH + top + bottom + 10;
+
+    return topic.rowHeight;
 
 }
 

@@ -9,6 +9,7 @@
 #import "WJTopicCell.h"
 #import "WJTopic.h"
 #import <UIImageView+WebCache.h>
+#import "WJTopicPictureView.h"
 
 @interface WJTopicCell()
 
@@ -24,9 +25,23 @@
 @property (weak, nonatomic) IBOutlet UILabel *text_label;
 
 @property (weak, nonatomic) IBOutlet UIImageView *sina_vView;
+
+
+/** 图片视图 */
+@property (nonatomic,weak) WJTopicPictureView *pictureView;
 @end
 
 @implementation WJTopicCell
+
+- (WJTopicPictureView *)pictureView
+{
+    if (_pictureView == nil) {
+        WJTopicPictureView *picView = [WJTopicPictureView pictureView];
+        [self.contentView addSubview:picView];
+        _pictureView = picView;
+    }
+    return _pictureView;
+}
 
 - (void)awakeFromNib {
     
@@ -54,6 +69,13 @@
     [self setButtonTitle:self.cai count:topic.cai placeholder:@"踩"];
     [self setButtonTitle:self.repost count:topic.repost placeholder:@"转发"];
     [self setButtonTitle:self.conmmentButton count:topic.comment placeholder:@"评论"];
+    
+    //添加图片
+    if (topic.type == WJTopeTypePicture) {
+        self.pictureView.topic = topic;
+        self.pictureView.frame = topic.pictureFrame;
+    }
+    
 }
 
 

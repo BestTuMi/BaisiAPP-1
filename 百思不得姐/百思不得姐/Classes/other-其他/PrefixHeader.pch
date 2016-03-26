@@ -27,6 +27,10 @@
 //百思不得姐的api接口URL
 #define BSURL @"http://api.budejie.com/api/api_open.php"
 
+//屏幕尺寸
+#define screenSize [UIScreen mainScreen].bounds.size
+
+
 #if DEBUG
 
 #define WJLog(...) NSLog(__VA_ARGS__)

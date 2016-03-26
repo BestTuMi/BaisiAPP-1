@@ -7,9 +7,14 @@
 //
 
 #import "WJTopic.h"
+#import <MJExtension.h>
 
 @implementation WJTopic
+{
+    CGFloat _rowHeight;
 
+    CGRect _pictureFrame;
+}
 
 - (NSString *)create_time
 {
@@ -48,6 +53,43 @@
     
 
 }
+
++ (NSDictionary *)mj_replacedKeyFromPropertyName
+{
+    return @{
+             @"small_image" : @"image0",
+             @"large_image" : @"image1",
+             @"middle_image" : @"image2",
+             };
+}
+
+
+- (CGFloat)rowHeight
+{
+   
+    if (!_rowHeight) {
+        
+        CGFloat maxWidth = screenSize.width - 2 * WJTopicMargin;
+        
+        CGSize maxsize = CGSizeMake([UIScreen mainScreen].bounds.size.width - 2 * WJTopicMargin, MAXFLOAT);
+        CGFloat textH = [self.text boundingRectWithSize:maxsize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17]} context:nil].size.height;
+        _rowHeight = textH + WJTopicTextX + WJTopicMargin;
+        if (self.type == WJTopeTypePicture) {
+            
+            CGFloat picW = maxWidth;
+            CGFloat picH = self.height * maxWidth / self.width;
+            CGFloat picX = WJTopicMargin;
+            CGFloat picY = _rowHeight;
+            _pictureFrame = CGRectMake(picX, picY, picW, picH);
+            _rowHeight += (picH + WJTopicMargin);
+        }
+        
+        _rowHeight += WJTopicBottonHeight + WJTopicMargin;
+    }
+//    WJLog(@"%@",NSStringFromCGRect(self.pic));
+    return _rowHeight;
+}
+
 
 
 @end

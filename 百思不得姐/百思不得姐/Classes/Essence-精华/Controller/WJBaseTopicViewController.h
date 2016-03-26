@@ -8,16 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-typedef enum
-{
-    WJTopeTypeAll = 1,
-    WJTopeTypeVideo = 41,
-    WJTopeTypePicture = 10,
-    WJTopeTypeSound = 31,
-    WJTopeTypeWord = 29
-
-}WJTopicType;
-
 @interface WJBaseTopicViewController : UITableViewController
 
 

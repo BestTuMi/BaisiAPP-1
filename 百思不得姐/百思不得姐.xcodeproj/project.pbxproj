@@ -24,6 +24,8 @@
 		992CEA251C958C71002C8B2C /* WJNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 992CEA241C958C71002C8B2C /* WJNavigationController.m */; };
 		992CEA271C959759002C8B2C /* WJFriendTrendsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 992CEA261C959759002C8B2C /* WJFriendTrendsController.xib */; };
 		992CEA2A1C95A17D002C8B2C /* WJRecommendController.m in Sources */ = {isa = PBXBuildFile; fileRef = 992CEA291C95A17D002C8B2C /* WJRecommendController.m */; };
+		99572D4C1CA6CFD300C87B32 /* WJTopicPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99572D4B1CA6CFD300C87B32 /* WJTopicPictureView.m */; };
+		99572D4E1CA6CFE100C87B32 /* WJTopicPictureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99572D4D1CA6CFE100C87B32 /* WJTopicPictureView.xib */; };
 		9971CDC41C99A55200DDCFF6 /* WJRecommendController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9971CDC31C99A55200DDCFF6 /* WJRecommendController.xib */; };
 		9971CDC71C99A55200DDCFF6 /* WJRecommondCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9971CDC61C99A55200DDCFF6 /* WJRecommondCategory.m */; };
 		9971CDD01C99A55200DDCFF6 /* WJCategoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9971CDCE1C99A55200DDCFF6 /* WJCategoryTableViewCell.m */; };
@@ -106,6 +108,9 @@
 		992CEA261C959759002C8B2C /* WJFriendTrendsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WJFriendTrendsController.xib; sourceTree = "<group>"; };
 		992CEA281C95A17D002C8B2C /* WJRecommendController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJRecommendController.h; sourceTree = "<group>"; };
 		992CEA291C95A17D002C8B2C /* WJRecommendController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJRecommendController.m; sourceTree = "<group>"; };
+		99572D4A1CA6CFD300C87B32 /* WJTopicPictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJTopicPictureView.h; sourceTree = "<group>"; };
+		99572D4B1CA6CFD300C87B32 /* WJTopicPictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJTopicPictureView.m; sourceTree = "<group>"; };
+		99572D4D1CA6CFE100C87B32 /* WJTopicPictureView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WJTopicPictureView.xib; sourceTree = "<group>"; };
 		9971CDC31C99A55200DDCFF6 /* WJRecommendController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WJRecommendController.xib; sourceTree = "<group>"; };
 		9971CDC51C99A55200DDCFF6 /* WJRecommondCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJRecommondCategory.h; sourceTree = "<group>"; };
 		9971CDC61C99A55200DDCFF6 /* WJRecommondCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJRecommondCategory.m; sourceTree = "<group>"; };
@@ -260,6 +265,9 @@
 				99BFE0E81CA2365A009111EA /* WJTopicCell.h */,
 				99BFE0E91CA2365A009111EA /* WJTopicCell.m */,
 				99BFE0EA1CA2365A009111EA /* WJTopicCell.xib */,
+				99572D4A1CA6CFD300C87B32 /* WJTopicPictureView.h */,
+				99572D4B1CA6CFD300C87B32 /* WJTopicPictureView.m */,
+				99572D4D1CA6CFE100C87B32 /* WJTopicPictureView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -628,6 +636,7 @@
 				9971CDD11C99A55200DDCFF6 /* WJCategoryTableViewCell.xib in Resources */,
 				99F6AEB51C953347003B4B1F /* Assets.xcassets in Resources */,
 				9971CDD61C99A55200DDCFF6 /* WJRecommondUserCell.xib in Resources */,
+				99572D4E1CA6CFE100C87B32 /* WJTopicPictureView.xib in Resources */,
 				99C983441C9EBEB400FA89C8 /* WJPushGuide.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -715,6 +724,7 @@
 				992CEA191C9585B4002C8B2C /* WJEssenceController.m in Sources */,
 				998CE9A21C9AF69300CE5814 /* WJRecommandTagController.m in Sources */,
 				992CEA1B1C9585B4002C8B2C /* WJMeController.m in Sources */,
+				99572D4C1CA6CFD300C87B32 /* WJTopicPictureView.m in Sources */,
 				992CEA1F1C9585B4002C8B2C /* UIView+WJExtension.m in Sources */,
 				992CEA2A1C95A17D002C8B2C /* WJRecommendController.m in Sources */,
 				9971CDC71C99A55200DDCFF6 /* WJRecommondCategory.m in Sources */,
