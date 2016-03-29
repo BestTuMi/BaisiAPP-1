@@ -10,6 +10,7 @@
 #import "WJTopic.h"
 #import <UIImageView+WebCache.h>
 #import "WJProgressView.h"
+#import "WJShowPictureController.h"
 
 @interface WJTopicPictureView()
 
@@ -26,6 +27,11 @@
 - (void)awakeFromNib
 {
     self.autoresizingMask = UIViewAutoresizingNone;
+    
+    //给图片添加坚挺器
+    self.imageView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showPicture)];
+    [self.imageView addGestureRecognizer:tap];
     
 
 }
@@ -64,6 +70,14 @@
     }
     
     
+}
+
+- (void)showPicture
+{
+    WJShowPictureController *showPicVc = [[WJShowPictureController alloc] init];
+    showPicVc.topic = self.topic;
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:showPicVc animated:NO completion:nil];
+
 }
 
 
