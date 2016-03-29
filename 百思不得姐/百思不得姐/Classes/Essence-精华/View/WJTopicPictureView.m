@@ -9,6 +9,7 @@
 #import "WJTopicPictureView.h"
 #import "WJTopic.h"
 #import <UIImageView+WebCache.h>
+#import "WJProgressView.h"
 
 @interface WJTopicPictureView()
 
@@ -16,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *gifView;
 
 @property (weak, nonatomic) IBOutlet UIButton *seeBigButton;
+@property (weak, nonatomic) IBOutlet WJProgressView *progressView;
 
 @end
 
@@ -24,6 +26,7 @@
 - (void)awakeFromNib
 {
     self.autoresizingMask = UIViewAutoresizingNone;
+    
 
 }
 
@@ -36,7 +39,14 @@
 {
     _topic = topic;
     
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:topic.large_image]];
+//    [self.imageView sd_setImageWithURL:[NSURL URLWithString:topic.large_image]];
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:topic.large_image] placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+        self.progressView.hidden = NO;
+        [self.progressView setProgress:(1.0 * receivedSize / expectedSize) animated:NO];
+    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        self.progressView.hidden = YES;
+        
+    }];
 
     //判断是否为gif
     NSString *extension = topic.large_image.pathExtension;
