@@ -66,4 +66,7 @@
 /** 是否为长图 */
 @property (nonatomic,assign,getter=isBigImage) BOOL bigImage;
 
+/** 当前图片的下载进度值 */
+@property (nonatomic,assign) NSInteger picProgress;
+
 @end

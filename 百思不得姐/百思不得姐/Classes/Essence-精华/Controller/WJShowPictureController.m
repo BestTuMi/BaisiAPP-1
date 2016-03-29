@@ -10,12 +10,14 @@
 #import "WJTopic.h"
 #import <UIImageView+WebCache.h>
 #import <SVProgressHUD.h>
+#import "WJProgressView.h"
 
 @interface WJShowPictureController ()
 
 /** 显示的图片 */
 @property (nonatomic,weak) UIImageView *bigImage;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet WJProgressView *progressView;
 
 @end
 
@@ -58,8 +60,18 @@
     
     [SVProgressHUD setMinimumDismissTimeInterval:1];
     
-//    [self.bigImage sd_setImageWithURL:<#(NSURL *)#> placeholderImage:<#(UIImage *)#> options:<#(SDWebImageOptions)#> progress:<#^(NSInteger receivedSize, NSInteger expectedSize)progressBlock#> completed:<#^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL)completedBlock#>];
-    [self.bigImage sd_setImageWithURL:[NSURL URLWithString:self.topic.large_image]];
+    [self.progressView setProgress:self.topic.picProgress animated:NO];
+
+    [self.bigImage sd_setImageWithURL:[NSURL URLWithString:self.topic.large_image] placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+        if (receivedSize == -0) {receivedSize = 0;}
+        
+        self.progressView.hidden = NO;
+        self.topic.picProgress = (1.0 * receivedSize / expectedSize);
+        [self.progressView setProgress:self.topic.picProgress animated:NO];
+    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        self.progressView.hidden = YES;
+        
+    }];
     
     
 }
@@ -82,6 +94,12 @@
 }
 
 - (IBAction)savePicture:(id)sender {
+    if (self.bigImage.image == nil)
+    {
+        [SVProgressHUD showErrorWithStatus:@"图片还没下载完毕，无法保存"];
+        return;
+    }
+    
     UIImageWriteToSavedPhotosAlbum(self.bigImage.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
     
 }

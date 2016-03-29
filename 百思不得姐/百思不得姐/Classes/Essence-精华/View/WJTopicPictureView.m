@@ -47,10 +47,24 @@
     
 //    [self.imageView sd_setImageWithURL:[NSURL URLWithString:topic.large_image]];
     [self.imageView sd_setImageWithURL:[NSURL URLWithString:topic.large_image] placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+        if (receivedSize == -0) {receivedSize = 0;}
+        
         self.progressView.hidden = NO;
-        [self.progressView setProgress:(1.0 * receivedSize / expectedSize) animated:NO];
+        topic.picProgress = (1.0 * receivedSize / expectedSize);
+        [self.progressView setProgress:topic.picProgress animated:NO];
     } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         self.progressView.hidden = YES;
+        
+        if (!self.topic.isBigImage) return;
+        
+        
+        UIGraphicsBeginImageContextWithOptions(topic.pictureFrame.size, NO, 0.0);
+        CGFloat picW = screenSize.width;
+        CGFloat picH = picW * self.topic.height / self.topic.width;
+        [image drawInRect:CGRectMake(0, 0, picW, picH)];
+        self.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
         
     }];
 
