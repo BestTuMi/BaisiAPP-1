@@ -1,26 +1,51 @@
 //
-//  WJPublishViewController.m
+//  WJPublishView.m
 //  百思不得姐
 //
 //  Created by wangju on 16/3/31.
 //  Copyright © 2016年 wangju. All rights reserved.
 //
 
-#import "WJPublishViewController.h"
+#import "WJPublishView.h"
 #import "WJVerticalButton.h"
 #import <POP.h>
 #define buttonCol 3
 
 #define WJAnimationDelay 0.1
 
-@interface WJPublishViewController ()
+@interface WJPublishView()
 
 @property (nonatomic,weak) UIImageView *slogan;
 
-
 @end
 
-@implementation WJPublishViewController
+@implementation WJPublishView
+
+static UIWindow *window_ = nil;
++ (void)show
+{
+
+    //添加窗口
+    window_ = [[UIWindow alloc] init];
+    window_.frame = [UIScreen mainScreen].bounds;
+    window_.backgroundColor = [UIColor clearColor];
+    window_.windowLevel = UIWindowLevelStatusBar;
+    window_.hidden = NO;
+    
+    WJPublishView *publishView = [self publishView];
+    publishView.frame = window_.bounds;
+    [window_ addSubview:publishView];
+    
+}
+
+
+
++ (instancetype)publishView
+{
+    return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:nil options:nil] lastObject];
+
+}
+
 
 - (UIImageView *)slogan
 {
@@ -28,18 +53,18 @@
         UIImageView *appSlogan = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"app_slogan"]];
         appSlogan.y = 0 - appSlogan.height;
         appSlogan.centerX =  screenSize.width * 0.5;
-        [self.view addSubview:appSlogan];
+        [self addSubview:appSlogan];
         _slogan = appSlogan;
     }
-
+    
     return _slogan;
-
+    
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)awakeFromNib
+{
+    self.userInteractionEnabled = NO;
 
-    self.view.userInteractionEnabled = NO;
     //下面的六个按钮
     // 数据
     NSArray *images = @[@"publish-video", @"publish-picture", @"publish-text", @"publish-audio", @"publish-review", @"publish-offline"];
@@ -62,7 +87,7 @@
         CGFloat row = i / buttonCol;//行
         
         WJVerticalButton *button = [[WJVerticalButton alloc] init];
-       
+        
         buttonX = startX + col * (buttonW + centerPadding);
         buttonY = startY + (ButtonH + paddingY)* row;
         
@@ -70,7 +95,7 @@
         [button setImage:[UIImage imageNamed:images[i]] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         button.titleLabel.font = [UIFont systemFontOfSize:15];
-        [self.view addSubview:button];
+        [self addSubview:button];
         
         [button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
         
@@ -84,22 +109,22 @@
         anim.beginTime = CACurrentMediaTime() + WJAnimationDelay * i;
         
         [button pop_addAnimation:anim forKey:nil];
-
+        
     }
     
     //标语动画
     CGFloat toY = screenSize.height * 0.15;
     CGFloat centerX = screenSize.width * 0.5;
-   
+    
     POPSpringAnimation *sloganAnim = [POPSpringAnimation animationWithPropertyNamed:kPOPViewCenter];
     sloganAnim.toValue = [NSValue valueWithCGPoint:CGPointMake(centerX, toY)];
     sloganAnim.beginTime = CACurrentMediaTime() + WJAnimationDelay * 6;
     sloganAnim.springBounciness = 10;
     sloganAnim.springSpeed = 20;
     [self.slogan pop_addAnimation:sloganAnim forKey:nil];
-
+    
     [sloganAnim setCompletionBlock:^(POPAnimation *anim, BOOL finish) {
-        self.view.userInteractionEnabled = YES;
+        self.userInteractionEnabled = YES;
     }];
     
 }
@@ -124,19 +149,19 @@
             
         }
     }];
-
-
-
+    
+    
+    
 }
 
 
 - (void)cancelWithCompleteBlock:(void (^)())completeBlock
 {
-    self.view.userInteractionEnabled = NO;
+    self.userInteractionEnabled = NO;
     
     CGFloat i = 0;
     
-    for (WJVerticalButton *verButton in self.view.subviews) {
+    for (WJVerticalButton *verButton in self.subviews) {
         if ([verButton isKindOfClass:[WJVerticalButton class]])
         {
             POPSpringAnimation *anim = [POPSpringAnimation animationWithPropertyNamed:kPOPViewCenter];
@@ -154,17 +179,25 @@
     [self.slogan pop_addAnimation:anim forKey:nil];
     
     [anim setCompletionBlock:^(POPAnimation *anim, BOOL finish) {
-        [self dismissViewControllerAnimated:NO completion:nil];
+        [self removeFromSuperview];
+        window_.hidden = YES;
         !completeBlock ? : completeBlock();
     }];
-
+    
 }
 
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
+    
     [self cancelWithCompleteBlock:nil];
+    
+}
 
+
+- (void)dealloc
+{
+    window_ = nil;
 }
 
 @end

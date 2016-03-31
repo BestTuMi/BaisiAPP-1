@@ -7,7 +7,7 @@
 //
 
 #import "WJTabbar.h"
-#import "WJPublishViewController.h"
+#import "WJPublishView.h"
 
 @interface WJTabbar()
 
@@ -77,11 +77,12 @@
 
 }
 
+
+
 - (void)publishButtonClicked
 {
 
-    WJPublishViewController *pubvVc = [[WJPublishViewController alloc] init];
-    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:pubvVc animated:NO completion:nil];
+    [WJPublishView show];
 
 }
 
