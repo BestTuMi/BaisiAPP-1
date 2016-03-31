@@ -56,7 +56,8 @@
 
 /** 音频时常 */
 @property (nonatomic,assign) NSInteger voicetime;
-
+/** 视频时常 */
+@property (nonatomic,assign) NSInteger videotime;
 /** 播放次数 */
 @property (nonatomic,assign) NSInteger playcount;
 

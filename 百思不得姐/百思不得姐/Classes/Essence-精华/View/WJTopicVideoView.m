@@ -1,28 +1,30 @@
 //
-//  WJTopicVoiceView.m
+//  WJTopicVideoView.m
 //  百思不得姐
 //
-//  Created by wangju on 16/3/31.
+//  Created by wangju on 16/4/1.
 //  Copyright © 2016年 wangju. All rights reserved.
 //
 
-#import "WJTopicVoiceView.h"
-#import <UIImageView+WebCache.h>
+#import "WJTopicVideoView.h"
 #import "WJTopic.h"
+#import <UIImageView+WebCache.h>
 #import "WJShowPictureController.h"
 
-@interface WJTopicVoiceView()
+
+@interface WJTopicVideoView()
 
 
+@property (weak, nonatomic) IBOutlet UILabel *playcountLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *videotimeLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet UILabel *playCountLabel;
-@property (weak, nonatomic) IBOutlet UILabel *voiceTimeLabel;
 
 @end
 
-@implementation WJTopicVoiceView
+@implementation WJTopicVideoView
 
-+ (instancetype)voiceView
++ (instancetype)videoView
 {
     return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] lastObject];
 }
@@ -32,15 +34,14 @@
     _topic = topic;
     
     [self.imageView sd_setImageWithURL:[NSURL URLWithString:topic.large_image]];
-
+    
     //播放次数
-    self.playCountLabel.text = [NSString stringWithFormat:@"%zd次播放",topic.playcount];
+    self.playcountLabel.text = [NSString stringWithFormat:@"%zd次播放",topic.playcount];
     
-   //播放时常
-    NSInteger minute = topic.voicetime / 60;
-    NSInteger second = topic.voicetime % 60;
-    
-    self.voiceTimeLabel.text = [NSString stringWithFormat:@"%02zd:%02zd",minute,second];
+    //播放时常
+    NSInteger minute = topic.videotime / 60;
+    NSInteger second = topic.videotime % 60;
+    self.videotimeLabel.text = [NSString stringWithFormat:@"%02zd:%02zd",minute,second];
 }
 
 - (void)awakeFromNib
@@ -65,6 +66,7 @@
 - (void)playVoice
 {
     WJLogFunc;
-
+    
 }
+
 @end

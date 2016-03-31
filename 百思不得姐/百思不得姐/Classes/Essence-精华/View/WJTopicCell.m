@@ -11,6 +11,7 @@
 #import <UIImageView+WebCache.h>
 #import "WJTopicPictureView.h"
 #import "WJTopicVoiceView.h"
+#import "WJTopicVideoView.h"
 
 @interface WJTopicCell()
 
@@ -34,10 +35,23 @@
 /** 声音帖子中间的内容 */
 @property (nonatomic,strong) WJTopicVoiceView *voiceView;
 
+/** 视频帖子中间的内容 */
+@property (nonatomic,strong) WJTopicVideoView *videoView;
+
 @end
 
 @implementation WJTopicCell
 
+
+- (WJTopicVideoView *)videoView
+{
+    if (_videoView == nil) {
+        WJTopicVideoView *videoVide = [WJTopicVideoView videoView];
+        [self.contentView addSubview:videoVide];
+        _videoView = videoVide;
+    }
+    return _videoView;
+}
 - (WJTopicPictureView *)pictureView
 {
     if (_pictureView == nil) {
@@ -87,13 +101,34 @@
     
     //添加图片
     if (topic.type == WJTopeTypePicture) {
+        self.pictureView.hidden = NO;
+        self.voiceView.hidden = YES;
+        self.videoView.hidden = YES;
         self.pictureView.topic = topic;
         self.pictureView.frame = topic.pictureFrame;
     }
     else if(topic.type == WJTopeTypeSound)
     {
+        self.pictureView.hidden = YES;
+        self.videoView.hidden = YES;
+        self.videoView.hidden = NO;
         self.voiceView.topic = topic;
         self.voiceView.frame = topic.voiceFrame;
+    }
+    else if (topic.type == WJTopeTypeVideo)
+    {
+        self.pictureView.hidden = YES;
+        self.voiceView.hidden = YES;
+        self.videoView.hidden = NO;
+        self.videoView.topic = topic;
+        self.videoView.frame = topic.videoFrame;
+    
+    }
+    else
+    {
+        self.pictureView.hidden = YES;
+        self.voiceView.hidden = YES;
+        self.videoView.hidden = YES;
     
     }
     
