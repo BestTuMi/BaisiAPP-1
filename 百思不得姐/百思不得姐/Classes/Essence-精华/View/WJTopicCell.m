@@ -111,7 +111,7 @@
     {
         self.pictureView.hidden = YES;
         self.videoView.hidden = YES;
-        self.videoView.hidden = NO;
+        self.voiceView.hidden = NO;
         self.voiceView.topic = topic;
         self.voiceView.frame = topic.voiceFrame;
     }
@@ -153,8 +153,6 @@
     
     CGFloat margin = 8;
     
-//    frame.origin.x = margin * 0.5;
-//    frame.size.width -= 2 * frame.origin.x;
     frame.size.height -= margin;
     frame.origin.y += margin;
     [super setFrame:frame];
