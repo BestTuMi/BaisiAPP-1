@@ -53,6 +53,8 @@
 		99F6AECE1C953347003B4B1F /* _____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F6AECD1C953347003B4B1F /* _____UITests.m */; };
 		99FF401B1CAD35E700C3EE23 /* WJPublishView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99FF40191CAD35E700C3EE23 /* WJPublishView.xib */; };
 		99FF40201CAD64DC00C3EE23 /* WJPublishView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99FF401F1CAD64DC00C3EE23 /* WJPublishView.m */; };
+		99FF40231CAD75E600C3EE23 /* WJTopicVoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99FF40221CAD75E600C3EE23 /* WJTopicVoiceView.m */; };
+		99FF40251CAD75FB00C3EE23 /* WJTopicVoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99FF40241CAD75FB00C3EE23 /* WJTopicVoiceView.xib */; };
 		B1BA38C515920B55ED517875 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD4581B48E7CCA9014EAD7DE /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -159,6 +161,9 @@
 		99FF40191CAD35E700C3EE23 /* WJPublishView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WJPublishView.xib; sourceTree = "<group>"; };
 		99FF401E1CAD64DC00C3EE23 /* WJPublishView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJPublishView.h; sourceTree = "<group>"; };
 		99FF401F1CAD64DC00C3EE23 /* WJPublishView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJPublishView.m; sourceTree = "<group>"; };
+		99FF40211CAD75E600C3EE23 /* WJTopicVoiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJTopicVoiceView.h; sourceTree = "<group>"; };
+		99FF40221CAD75E600C3EE23 /* WJTopicVoiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJTopicVoiceView.m; sourceTree = "<group>"; };
+		99FF40241CAD75FB00C3EE23 /* WJTopicVoiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WJTopicVoiceView.xib; sourceTree = "<group>"; };
 		BD4581B48E7CCA9014EAD7DE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5873B3403F0428290654FA3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -256,6 +261,9 @@
 				99BFE0E81CA2365A009111EA /* WJTopicCell.h */,
 				99BFE0E91CA2365A009111EA /* WJTopicCell.m */,
 				99BFE0EA1CA2365A009111EA /* WJTopicCell.xib */,
+				99FF40211CAD75E600C3EE23 /* WJTopicVoiceView.h */,
+				99FF40221CAD75E600C3EE23 /* WJTopicVoiceView.m */,
+				99FF40241CAD75FB00C3EE23 /* WJTopicVoiceView.xib */,
 				99572D4A1CA6CFD300C87B32 /* WJTopicPictureView.h */,
 				99572D4B1CA6CFD300C87B32 /* WJTopicPictureView.m */,
 				99572D4D1CA6CFE100C87B32 /* WJTopicPictureView.xib */,
@@ -627,6 +635,7 @@
 				992CEA271C959759002C8B2C /* WJFriendTrendsController.xib in Resources */,
 				9971CDC41C99A55200DDCFF6 /* WJRecommendController.xib in Resources */,
 				997B49C91C9D7E7B00452F37 /* WJLoginResignController.xib in Resources */,
+				99FF40251CAD75FB00C3EE23 /* WJTopicVoiceView.xib in Resources */,
 				998CE9AA1C9AFFE200CE5814 /* WJRecommendTagCell.xib in Resources */,
 				990128D21CAAC5CF0098E077 /* WJShowPictureController.xib in Resources */,
 				99BFE0EC1CA2365A009111EA /* WJTopicCell.xib in Resources */,
@@ -712,6 +721,7 @@
 				997B49CF1C9D982600452F37 /* WJloginTextField.m in Sources */,
 				9971CDD91C99A55200DDCFF6 /* WJRecommondUser.m in Sources */,
 				99FF40201CAD64DC00C3EE23 /* WJPublishView.m in Sources */,
+				99FF40231CAD75E600C3EE23 /* WJTopicVoiceView.m in Sources */,
 				992CEA221C9585B4002C8B2C /* WJTabbar.m in Sources */,
 				997B49CC1C9D868100452F37 /* WJVerticalButton.m in Sources */,
 				992CEA1A1C9585B4002C8B2C /* WJFriendTrendsController.m in Sources */,

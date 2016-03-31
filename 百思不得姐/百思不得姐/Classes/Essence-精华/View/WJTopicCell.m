@@ -10,6 +10,7 @@
 #import "WJTopic.h"
 #import <UIImageView+WebCache.h>
 #import "WJTopicPictureView.h"
+#import "WJTopicVoiceView.h"
 
 @interface WJTopicCell()
 
@@ -29,6 +30,10 @@
 
 /** 图片视图 */
 @property (nonatomic,weak) WJTopicPictureView *pictureView;
+
+/** 声音帖子中间的内容 */
+@property (nonatomic,strong) WJTopicVoiceView *voiceView;
+
 @end
 
 @implementation WJTopicCell
@@ -41,6 +46,16 @@
         _pictureView = picView;
     }
     return _pictureView;
+}
+
+- (WJTopicVoiceView *)voiceView
+{
+    if (_voiceView == nil) {
+        WJTopicVoiceView *voiceView = [WJTopicVoiceView voiceView];
+        [self.contentView addSubview:voiceView];
+        _voiceView = voiceView;
+    }
+    return _voiceView;
 }
 
 - (void)awakeFromNib {
@@ -74,6 +89,12 @@
     if (topic.type == WJTopeTypePicture) {
         self.pictureView.topic = topic;
         self.pictureView.frame = topic.pictureFrame;
+    }
+    else if(topic.type == WJTopeTypeSound)
+    {
+        self.voiceView.topic = topic;
+        self.voiceView.frame = topic.voiceFrame;
+    
     }
     
 }

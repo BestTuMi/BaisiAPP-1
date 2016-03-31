@@ -88,10 +88,26 @@
             _pictureFrame = CGRectMake(picX, picY, picW, picH);
             _rowHeight += (picH + WJTopicMargin);
         }
+        else if (self.type == WJTopeTypeSound || self.type == WJTopeTypeVideo)
+        {
+            CGFloat picW = maxWidth;
+            CGFloat picH = self.height * maxWidth / self.width;
+            CGFloat picX = WJTopicMargin;
+            CGFloat picY = _rowHeight;
+            if (self.type == WJTopeTypeSound) {
+                _voiceFrame = CGRectMake(picX, picY, picW, picH);
+            }
+            else
+            {
+                _videoFrame = CGRectMake(picX, picY, picW, picH);
+            }
+            
+            _rowHeight += (picH + WJTopicMargin);
         
+        }
         _rowHeight += WJTopicBottonHeight + WJTopicMargin;
     }
-//    WJLog(@"%@",NSStringFromCGRect(self.pic));
+
     return _rowHeight;
 }
 

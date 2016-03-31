@@ -54,6 +54,18 @@
 /** 段子的属性 */
 @property (nonatomic,assign) WJTopicType type;
 
+/** 音频时常 */
+@property (nonatomic,assign) NSInteger voicetime;
+
+/** 播放次数 */
+@property (nonatomic,assign) NSInteger playcount;
+
+/** 音频url */
+@property (nonatomic,copy) NSString *voiceuri;
+
+/** 视频url */
+@property (nonatomic,copy) NSString *videouri;
+
 /**
  *  辅助的属性***************************
  */
@@ -62,6 +74,12 @@
 
 /** 图片控件的frame */
 @property (nonatomic,assign,readonly) CGRect pictureFrame;
+
+/** 音频控件的frame */
+@property (nonatomic,assign,readonly) CGRect voiceFrame;
+
+/** 视频控件的frame */
+@property (nonatomic,assign,readonly) CGRect videoFrame;
 
 /** 是否为长图 */
 @property (nonatomic,assign,getter=isBigImage) BOOL bigImage;

@@ -190,6 +190,7 @@ static UIWindow *window_ = nil;
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     
+    
     [self cancelWithCompleteBlock:nil];
     
 }
