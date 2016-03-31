@@ -118,7 +118,7 @@ static NSString * cellID = @"TopicCell";
 {
     
     self.view.backgroundColor = [UIColor clearColor];
-//    self.tableView.rowHeight = 150;
+
     
     CGFloat top = CGRectGetMaxY(self.navigationController.navigationBar.frame) + WJTitleViewHeight;
     CGFloat bottom = self.tabBarController.tabBar.height;

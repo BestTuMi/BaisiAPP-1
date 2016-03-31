@@ -56,8 +56,6 @@
     
     contentView.frame = self.view.bounds;
 
-    WJLog(@"%@",NSStringFromCGRect(self.view.bounds));
-
     [self.view insertSubview:contentView atIndex:0];
     
     contentView.contentSize = CGSizeMake(self.childViewControllers.count * contentView.width, 0);

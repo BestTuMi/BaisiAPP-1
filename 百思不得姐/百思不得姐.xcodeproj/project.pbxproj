@@ -51,6 +51,8 @@
 		99F6AEB51C953347003B4B1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99F6AEB41C953347003B4B1F /* Assets.xcassets */; };
 		99F6AEC31C953347003B4B1F /* _____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F6AEC21C953347003B4B1F /* _____Tests.m */; };
 		99F6AECE1C953347003B4B1F /* _____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F6AECD1C953347003B4B1F /* _____UITests.m */; };
+		99FF401A1CAD35E700C3EE23 /* WJPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99FF40181CAD35E700C3EE23 /* WJPublishViewController.m */; };
+		99FF401B1CAD35E700C3EE23 /* WJPublishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99FF40191CAD35E700C3EE23 /* WJPublishViewController.xib */; };
 		B1BA38C515920B55ED517875 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD4581B48E7CCA9014EAD7DE /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -154,6 +156,9 @@
 		99F6AEC91C953347003B4B1F /* 百思不得姐UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "百思不得姐UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		99F6AECD1C953347003B4B1F /* _____UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "_____UITests.m"; sourceTree = "<group>"; };
 		99F6AECF1C953347003B4B1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		99FF40171CAD35E700C3EE23 /* WJPublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJPublishViewController.h; sourceTree = "<group>"; };
+		99FF40181CAD35E700C3EE23 /* WJPublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJPublishViewController.m; sourceTree = "<group>"; };
+		99FF40191CAD35E700C3EE23 /* WJPublishViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WJPublishViewController.xib; sourceTree = "<group>"; };
 		BD4581B48E7CCA9014EAD7DE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5873B3403F0428290654FA3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -415,6 +420,9 @@
 				992CEA121C9585B4002C8B2C /* WJTabbarController.m */,
 				992CEA231C958C71002C8B2C /* WJNavigationController.h */,
 				992CEA241C958C71002C8B2C /* WJNavigationController.m */,
+				99FF40171CAD35E700C3EE23 /* WJPublishViewController.h */,
+				99FF40181CAD35E700C3EE23 /* WJPublishViewController.m */,
+				99FF40191CAD35E700C3EE23 /* WJPublishViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -627,6 +635,7 @@
 				9971CDD61C99A55200DDCFF6 /* WJRecommondUserCell.xib in Resources */,
 				99572D4E1CA6CFE100C87B32 /* WJTopicPictureView.xib in Resources */,
 				99C983441C9EBEB400FA89C8 /* WJPushGuide.xib in Resources */,
+				99FF401B1CAD35E700C3EE23 /* WJPublishViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -710,6 +719,7 @@
 				992CEA191C9585B4002C8B2C /* WJEssenceController.m in Sources */,
 				998CE9A21C9AF69300CE5814 /* WJRecommandTagController.m in Sources */,
 				992CEA1B1C9585B4002C8B2C /* WJMeController.m in Sources */,
+				99FF401A1CAD35E700C3EE23 /* WJPublishViewController.m in Sources */,
 				99572D4C1CA6CFD300C87B32 /* WJTopicPictureView.m in Sources */,
 				992CEA1F1C9585B4002C8B2C /* UIView+WJExtension.m in Sources */,
 				992CEA2A1C95A17D002C8B2C /* WJRecommendController.m in Sources */,

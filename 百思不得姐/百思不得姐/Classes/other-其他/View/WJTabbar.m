@@ -7,6 +7,7 @@
 //
 
 #import "WJTabbar.h"
+#import "WJPublishViewController.h"
 
 @interface WJTabbar()
 
@@ -31,6 +32,7 @@
         UIButton *centerButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [centerButton setImage:[UIImage imageNamed:@"tabBar_publish_icon"] forState:UIControlStateNormal];
         [centerButton setImage:[UIImage imageNamed:@"tabBar_publish_click_icon"] forState:UIControlStateSelected];
+        [centerButton addTarget:self action:@selector(publishButtonClicked) forControlEvents:UIControlEventTouchUpInside];
         
         [self addSubview:centerButton];
         
@@ -72,6 +74,14 @@
     }
     
     
+
+}
+
+- (void)publishButtonClicked
+{
+
+    WJPublishViewController *pubvVc = [[WJPublishViewController alloc] init];
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:pubvVc animated:NO completion:nil];
 
 }
 

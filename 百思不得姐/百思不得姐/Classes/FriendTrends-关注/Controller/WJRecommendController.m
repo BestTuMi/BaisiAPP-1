@@ -67,7 +67,8 @@ static NSString * const userID = @"user";
 
 - (void)loadCategorys
 {
-    [SVProgressHUD showWithStatus:@"努力加载中..." maskType:SVProgressHUDMaskTypeClear];
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeClear];
+    [SVProgressHUD showWithStatus:@"正在加载中。。。"];
     
     NSMutableDictionary *params =[NSMutableDictionary dictionary];
     params[@"a"] = @"category";

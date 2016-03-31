@@ -20,4 +20,4 @@ CGFloat const WJTopicPictureMaxHeight = 1000;
 /**
  *  精华cell里面图片帖子的大图压缩后的图片高度
  */
-CGFloat const WJTopicPictureNormalHeight = 250;
+CGFloat const WJTopicPictureNormalHeight = 300;

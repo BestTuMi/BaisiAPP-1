@@ -88,7 +88,7 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    WJLogFunc;
+
     [self dismissViewControllerAnimated:NO completion:nil];
 
 }

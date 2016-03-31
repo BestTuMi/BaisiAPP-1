@@ -45,8 +45,9 @@ static NSString * const tagID = @"reTag";
     self.title = @"推荐标签";
     self.tableView.backgroundColor = WJGlobalBGColor;
     
-    [SVProgressHUD showWithStatus:@"数据加载中" maskType:SVProgressHUDMaskTypeClear];
-    
+//    [SVProgressHUD showWithStatus:@"数据加载中" maskType:SVProgressHUDMaskTypeClear];
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeClear];
+    [SVProgressHUD showWithStatus:@"数据加载中"];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([WJRecommendTagCell class]) bundle:nil] forCellReuseIdentifier:tagID];
     
     self.tableView.rowHeight = 65;
@@ -62,7 +63,6 @@ static NSString * const tagID = @"reTag";
         self.tags = [WJRecommendTag mj_objectArrayWithKeyValuesArray:responseObject];
         
         [self.tableView reloadData];
-        WJLog(@"%@",responseObject);
         [SVProgressHUD dismiss];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [SVProgressHUD showErrorWithStatus:@"数据请求失败"];
