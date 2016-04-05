@@ -8,6 +8,8 @@
 
 #import "WJTopic.h"
 #import <MJExtension.h>
+#import "WJComment.h"
+#import "WJUser.h"
 
 @implementation WJTopic
 {
@@ -63,6 +65,15 @@
              };
 }
 
++ (NSDictionary *)mj_objectClassInArray
+{
+   
+    return @{
+             @"top_cmt" : [WJComment class]
+             };
+
+}
+
 
 - (CGFloat)rowHeight
 {
@@ -106,7 +117,24 @@
         
         }
         _rowHeight += WJTopicBottonHeight + WJTopicMargin;
+        
+        //处理热门评论
+        WJComment *hotCmt = [self.top_cmt firstObject];
+        
+        if (hotCmt)
+        {
+            NSString *content = [NSString stringWithFormat:@"@%@ : %@",hotCmt.user.username,hotCmt.content];
+            NSInteger contentH = [content boundingRectWithSize:maxsize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]} context:nil].size.height;
+            
+            _rowHeight += WJTopicHotCmtLabelHeight + contentH + WJTopicMargin;
+            
+        }
+     
     }
+    
+
+    
+    
 
     return _rowHeight;
 }

@@ -86,18 +86,20 @@ static NSString * cellID = @"TopicCell";
 {
     
     NSMutableDictionary *parmas = [NSMutableDictionary dictionary];
-    parmas[@"a"] = @"newlist";
+    parmas[@"a"] = @"list";
     parmas[@"c"] = @"data";
     parmas[@"maxtime"] = self.maxtime;
     parmas[@"type"] = @(self.type);
     self.parmas = parmas;
     
     [self.manager GET:BSURL parameters:parmas progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+
         
         [self.list addObjectsFromArray:[WJTopic mj_objectArrayWithKeyValuesArray:responseObject[@"list"]]];
         
         self.maxtime = responseObject[@"info"][@"maxtime"];
         
+        WJLog(@"%@",self.list[8]);
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         

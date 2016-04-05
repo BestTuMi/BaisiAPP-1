@@ -67,6 +67,9 @@
 /** 视频url */
 @property (nonatomic,copy) NSString *videouri;
 
+/** 最热 */
+@property (nonatomic,strong) NSArray *top_cmt;
+
 /**
  *  辅助的属性***************************
  */

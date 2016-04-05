@@ -27,6 +27,8 @@
 		992CEA251C958C71002C8B2C /* WJNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 992CEA241C958C71002C8B2C /* WJNavigationController.m */; };
 		992CEA271C959759002C8B2C /* WJFriendTrendsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 992CEA261C959759002C8B2C /* WJFriendTrendsController.xib */; };
 		992CEA2A1C95A17D002C8B2C /* WJRecommendController.m in Sources */ = {isa = PBXBuildFile; fileRef = 992CEA291C95A17D002C8B2C /* WJRecommendController.m */; };
+		99423A841CB3ED5000EEAC0E /* WJUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 99423A831CB3ED5000EEAC0E /* WJUser.m */; };
+		99423A871CB3F06D00EEAC0E /* WJComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 99423A861CB3F06D00EEAC0E /* WJComment.m */; };
 		99572D4C1CA6CFD300C87B32 /* WJTopicPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99572D4B1CA6CFD300C87B32 /* WJTopicPictureView.m */; };
 		99572D4E1CA6CFE100C87B32 /* WJTopicPictureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99572D4D1CA6CFE100C87B32 /* WJTopicPictureView.xib */; };
 		9971CDC41C99A55200DDCFF6 /* WJRecommendController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9971CDC31C99A55200DDCFF6 /* WJRecommendController.xib */; };
@@ -117,6 +119,10 @@
 		992CEA261C959759002C8B2C /* WJFriendTrendsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WJFriendTrendsController.xib; sourceTree = "<group>"; };
 		992CEA281C95A17D002C8B2C /* WJRecommendController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJRecommendController.h; sourceTree = "<group>"; };
 		992CEA291C95A17D002C8B2C /* WJRecommendController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJRecommendController.m; sourceTree = "<group>"; };
+		99423A821CB3ED5000EEAC0E /* WJUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJUser.h; sourceTree = "<group>"; };
+		99423A831CB3ED5000EEAC0E /* WJUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJUser.m; sourceTree = "<group>"; };
+		99423A851CB3F06D00EEAC0E /* WJComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJComment.h; sourceTree = "<group>"; };
+		99423A861CB3F06D00EEAC0E /* WJComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJComment.m; sourceTree = "<group>"; };
 		99572D4A1CA6CFD300C87B32 /* WJTopicPictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJTopicPictureView.h; sourceTree = "<group>"; };
 		99572D4B1CA6CFD300C87B32 /* WJTopicPictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJTopicPictureView.m; sourceTree = "<group>"; };
 		99572D4D1CA6CFE100C87B32 /* WJTopicPictureView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WJTopicPictureView.xib; sourceTree = "<group>"; };
@@ -253,6 +259,10 @@
 				998CE9A41C9AFE9100CE5814 /* WJRecommendTag.m */,
 				9919F3F21CA19DDF00A08850 /* WJTopic.h */,
 				9919F3F31CA19DDF00A08850 /* WJTopic.m */,
+				99423A821CB3ED5000EEAC0E /* WJUser.h */,
+				99423A831CB3ED5000EEAC0E /* WJUser.m */,
+				99423A851CB3F06D00EEAC0E /* WJComment.h */,
+				99423A861CB3F06D00EEAC0E /* WJComment.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -735,6 +745,7 @@
 				997B49CC1C9D868100452F37 /* WJVerticalButton.m in Sources */,
 				992CEA1A1C9585B4002C8B2C /* WJFriendTrendsController.m in Sources */,
 				9919F3F71CA1AC5100A08850 /* WJConstant.m in Sources */,
+				99423A841CB3ED5000EEAC0E /* WJUser.m in Sources */,
 				9971CDD01C99A55200DDCFF6 /* WJCategoryTableViewCell.m in Sources */,
 				992CEA191C9585B4002C8B2C /* WJEssenceController.m in Sources */,
 				998CE9A21C9AF69300CE5814 /* WJRecommandTagController.m in Sources */,
@@ -759,6 +770,7 @@
 				997B49C81C9D7E7B00452F37 /* WJLoginResignController.m in Sources */,
 				990128D11CAAC5CF0098E077 /* WJShowPictureController.m in Sources */,
 				990E46611CA421A300663CB5 /* WJBaseTopicViewController.m in Sources */,
+				99423A871CB3F06D00EEAC0E /* WJComment.m in Sources */,
 				992CEA1D1C9585B4002C8B2C /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

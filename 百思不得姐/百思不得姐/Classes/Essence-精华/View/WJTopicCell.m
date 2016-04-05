@@ -12,6 +12,8 @@
 #import "WJTopicPictureView.h"
 #import "WJTopicVoiceView.h"
 #import "WJTopicVideoView.h"
+#import "WJUser.h"
+#import "WJComment.h"
 
 @interface WJTopicCell()
 
@@ -27,6 +29,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *text_label;
 
 @property (weak, nonatomic) IBOutlet UIImageView *sina_vView;
+
+@property (weak, nonatomic) IBOutlet UILabel *topCmtComtentLabel;
+
+@property (weak, nonatomic) IBOutlet UIView *topCmtView;
 
 
 /** 图片视图 */
@@ -131,6 +137,22 @@
         self.videoView.hidden = YES;
     
     }
+    
+    //处理热门评论
+    WJComment *hotCmt = [topic.top_cmt firstObject];
+    
+    if (hotCmt)
+    {
+        self.topCmtView.hidden = NO;
+        self.topCmtComtentLabel.text = [NSString stringWithFormat:@"@%@ : %@",hotCmt.user.username,hotCmt.content];
+    }
+    else
+    {
+        self.topCmtView.hidden = YES;
+    }
+    
+    
+    
     
 }
 
