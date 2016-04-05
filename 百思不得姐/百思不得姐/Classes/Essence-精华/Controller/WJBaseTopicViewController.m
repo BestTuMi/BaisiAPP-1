@@ -14,6 +14,7 @@
 #import <MJExtension.h>
 #import "WJTopic.h"
 #import "WJTopicCell.h"
+#import "WJCommentViewController.h"
 
 @interface WJBaseTopicViewController ()
 
@@ -167,6 +168,16 @@ static NSString * cellID = @"TopicCell";
     WJTopic *topic = self.list[indexPath.row];
 
     return topic.rowHeight;
+
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    WJCommentViewController *cmtVc = [[WJCommentViewController alloc] init];
+    
+    [self.navigationController pushViewController:cmtVc animated:YES];
+    
+    WJLog(@"%zd",indexPath.row);
 
 }
 

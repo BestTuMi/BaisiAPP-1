@@ -15,7 +15,7 @@
     UIButton *button = [[UIButton alloc] init];
     
     [button setImage:[UIImage imageNamed:image] forState:UIControlStateNormal];
-    [button setImage:[UIImage imageNamed:highImage] forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:highImage] forState:UIControlStateHighlighted];
     button.size = button.currentImage.size;
     
     [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];

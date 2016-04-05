@@ -29,6 +29,8 @@
 		992CEA2A1C95A17D002C8B2C /* WJRecommendController.m in Sources */ = {isa = PBXBuildFile; fileRef = 992CEA291C95A17D002C8B2C /* WJRecommendController.m */; };
 		99423A841CB3ED5000EEAC0E /* WJUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 99423A831CB3ED5000EEAC0E /* WJUser.m */; };
 		99423A871CB3F06D00EEAC0E /* WJComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 99423A861CB3F06D00EEAC0E /* WJComment.m */; };
+		99423A8B1CB405DD00EEAC0E /* WJCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99423A891CB405DD00EEAC0E /* WJCommentViewController.m */; };
+		99423A8C1CB405DD00EEAC0E /* WJCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99423A8A1CB405DD00EEAC0E /* WJCommentViewController.xib */; };
 		99572D4C1CA6CFD300C87B32 /* WJTopicPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99572D4B1CA6CFD300C87B32 /* WJTopicPictureView.m */; };
 		99572D4E1CA6CFE100C87B32 /* WJTopicPictureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99572D4D1CA6CFE100C87B32 /* WJTopicPictureView.xib */; };
 		9971CDC41C99A55200DDCFF6 /* WJRecommendController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9971CDC31C99A55200DDCFF6 /* WJRecommendController.xib */; };
@@ -123,6 +125,9 @@
 		99423A831CB3ED5000EEAC0E /* WJUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJUser.m; sourceTree = "<group>"; };
 		99423A851CB3F06D00EEAC0E /* WJComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJComment.h; sourceTree = "<group>"; };
 		99423A861CB3F06D00EEAC0E /* WJComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJComment.m; sourceTree = "<group>"; };
+		99423A881CB405DD00EEAC0E /* WJCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJCommentViewController.h; sourceTree = "<group>"; };
+		99423A891CB405DD00EEAC0E /* WJCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJCommentViewController.m; sourceTree = "<group>"; };
+		99423A8A1CB405DD00EEAC0E /* WJCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WJCommentViewController.xib; sourceTree = "<group>"; };
 		99572D4A1CA6CFD300C87B32 /* WJTopicPictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJTopicPictureView.h; sourceTree = "<group>"; };
 		99572D4B1CA6CFD300C87B32 /* WJTopicPictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJTopicPictureView.m; sourceTree = "<group>"; };
 		99572D4D1CA6CFE100C87B32 /* WJTopicPictureView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WJTopicPictureView.xib; sourceTree = "<group>"; };
@@ -248,6 +253,9 @@
 				990128CE1CAAC5CF0098E077 /* WJShowPictureController.h */,
 				990128CF1CAAC5CF0098E077 /* WJShowPictureController.m */,
 				990128D01CAAC5CF0098E077 /* WJShowPictureController.xib */,
+				99423A881CB405DD00EEAC0E /* WJCommentViewController.h */,
+				99423A891CB405DD00EEAC0E /* WJCommentViewController.m */,
+				99423A8A1CB405DD00EEAC0E /* WJCommentViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -659,6 +667,7 @@
 				99BFE0EC1CA2365A009111EA /* WJTopicCell.xib in Resources */,
 				9971CDD11C99A55200DDCFF6 /* WJCategoryTableViewCell.xib in Resources */,
 				99F6AEB51C953347003B4B1F /* Assets.xcassets in Resources */,
+				99423A8C1CB405DD00EEAC0E /* WJCommentViewController.xib in Resources */,
 				9971CDD61C99A55200DDCFF6 /* WJRecommondUserCell.xib in Resources */,
 				99572D4E1CA6CFE100C87B32 /* WJTopicPictureView.xib in Resources */,
 				99C983441C9EBEB400FA89C8 /* WJPushGuide.xib in Resources */,
@@ -737,6 +746,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99BFE0EB1CA2365A009111EA /* WJTopicCell.m in Sources */,
+				99423A8B1CB405DD00EEAC0E /* WJCommentViewController.m in Sources */,
 				997B49CF1C9D982600452F37 /* WJloginTextField.m in Sources */,
 				9971CDD91C99A55200DDCFF6 /* WJRecommondUser.m in Sources */,
 				99FF40201CAD64DC00C3EE23 /* WJPublishView.m in Sources */,
