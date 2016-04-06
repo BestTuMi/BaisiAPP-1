@@ -14,4 +14,6 @@
 /*帖子模型*/
 @property (nonatomic,strong) WJTopic *topic;
 
++ (instancetype)topicCell;
+
 @end

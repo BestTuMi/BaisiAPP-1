@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class WJTopic;
 @interface WJCommentViewController : UIViewController
+
+/** 帖子模型 */
+@property (nonatomic,strong) WJTopic *topic;
 
 @end

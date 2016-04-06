@@ -88,6 +88,12 @@
 }
 
 
++ (instancetype)topicCell
+{
+    return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:nil options:nil] lastObject];
+}
+
+
 - (void)setTopic:(WJTopic *)topic
 {
     _topic = topic;
@@ -175,7 +181,8 @@
     
     CGFloat margin = 8;
     
-    frame.size.height -= margin;
+//    frame.size.height -= margin;
+    frame.size.height = self.topic.rowHeight - WJTopicMargin;
     frame.origin.y += margin;
     [super setFrame:frame];
 }
@@ -184,6 +191,19 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+- (IBAction)more {
+    
+    UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"收藏" style:UIAlertActionStyleDefault handler:nil];
+     UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"举报" style:UIAlertActionStyleDefault handler:nil];
+    UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    [alertVc addAction:action1];
+    [alertVc addAction:action2];
+    [alertVc addAction:action3];
+    
+    [self.window.rootViewController presentViewController:alertVc animated:YES completion:nil];
+    
 }
 
 @end

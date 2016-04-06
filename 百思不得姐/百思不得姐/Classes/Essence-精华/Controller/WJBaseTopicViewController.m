@@ -100,7 +100,6 @@ static NSString * cellID = @"TopicCell";
         
         self.maxtime = responseObject[@"info"][@"maxtime"];
         
-        WJLog(@"%@",self.list[8]);
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         
@@ -173,11 +172,13 @@ static NSString * cellID = @"TopicCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    WJTopic *topic = self.list[indexPath.row];
     WJCommentViewController *cmtVc = [[WJCommentViewController alloc] init];
+    
+    cmtVc.topic = topic;
     
     [self.navigationController pushViewController:cmtVc animated:YES];
     
-    WJLog(@"%zd",indexPath.row);
 
 }
 
