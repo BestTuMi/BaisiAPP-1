@@ -93,8 +93,7 @@
 - (void)setupTableHeaderView
 {
     UIView *header = [[UIView alloc] init];
-//    header.backgroundColor = [UIColor redColor];
-    
+
     WJTopicCell *topicCell = [WJTopicCell topicCell];
 
     [header addSubview:topicCell];
@@ -237,17 +236,30 @@
     return cell;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    //有热门评论，返回两组
-    NSInteger hotCount = self.hotComments.count;
-    
-    if (section == 0) {
-        return hotCount ? @"最热评论" : @"最新评论";
-    }
+//- (nullable UITableViewHeaderFooterView *)headerViewForSection:(NSInteger)section
+//{
+//    UILabel *lab = [[UILabel alloc] init];
+//    lab.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+//    lab.text = @"哈哈";
+//    
+//    return lab;
+//
+//}
 
-    return @"最新评论";
-}
+
+//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+//{
+//    //有热门评论，返回两组
+//    NSInteger hotCount = self.hotComments.count;
+//    
+//    if (section == 0) {
+//        return hotCount ? @"最热评论" : @"最新评论";
+//    }
+//
+//    return @"最新评论";
+//}
+
+
 
 #pragma mark - <UIScrollViewDelegate>
 
