@@ -9,6 +9,11 @@
 #import <Foundation/Foundation.h>
 
 @interface WJTopic : NSObject
+
+/** 帖子的id */
+@property (nonatomic,assign) NSInteger ID;
+
+
 /** 名称 */
 @property (nonatomic,copy) NSString *name;
 

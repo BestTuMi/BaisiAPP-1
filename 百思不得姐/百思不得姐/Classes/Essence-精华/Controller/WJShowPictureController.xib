@@ -76,6 +76,7 @@
                 <constraint firstAttribute="bottom" secondItem="yN1-5u-kiZ" secondAttribute="bottom" id="pZ8-a5-FL8"/>
                 <constraint firstItem="VN4-n5-kGn" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="sEE-l3-l5i"/>
             </constraints>
+            <point key="canvasLocation" x="390" y="376"/>
         </view>
     </objects>
     <resources>

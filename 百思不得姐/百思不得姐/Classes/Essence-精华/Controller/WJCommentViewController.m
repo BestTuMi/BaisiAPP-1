@@ -10,15 +10,59 @@
 #import "WJTopicCell.h"
 #import "WJTopic.h"
 #import <MJRefresh.h>
+#import <AFNetworking.h>
+#import <SVProgressHUD.h>
+#import <MJExtension.h>
+#import "WJComment.h"
 
 @interface WJCommentViewController ()<UIScrollViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *buttomConstraint;
 @property (weak, nonatomic) IBOutlet UITableView *tabbleView;
 
+/** 记录上一次的请求参数 */
+@property (nonatomic,strong) NSMutableDictionary *parmas;
+
+/** 请求 */
+@property (nonatomic,strong) AFHTTPSessionManager *manager;
+
+
+/** 最热评论 */
+@property (nonatomic,strong) NSMutableArray *hotComments;
+
+/** 最新评论 */
+@property (nonatomic,strong) NSMutableArray *lastComments;
+
 @end
 
 @implementation WJCommentViewController
+
+- (NSMutableArray *)hotComments
+{
+    if (_hotComments == nil) {
+        _hotComments = [NSMutableArray array];
+    }
+    return _hotComments;
+}
+
+- (NSMutableArray *)lastComments
+{
+    if (_lastComments == nil) {
+        _lastComments = [NSMutableArray array];
+    }
+    return _lastComments;
+
+}
+
+
+- (AFHTTPSessionManager *)manager
+{
+    if (_manager == nil) {
+        _manager = [AFHTTPSessionManager manager];
+    }
+    return _manager;
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -80,7 +124,45 @@
 
 - (void)loadNewComments
 {
-    WJLogFunc;
+    [self LoadMoreComments];
+
+}
+
+- (void)LoadMoreComments
+{
+    NSMutableDictionary *parmas = [NSMutableDictionary dictionary];
+    parmas[@"a"] = @"dataList";
+    parmas[@"c"] = @"comment";
+    parmas[@"hot"] = @1;
+    parmas[@"data_id"] = @(self.topic.ID);
+    self.parmas = parmas;
+    
+    [self.manager GET:BSURL parameters:parmas progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        [self.tabbleView.mj_header endRefreshing];
+        [self.tabbleView.mj_footer endRefreshing];
+
+        if (![responseObject isKindOfClass:[NSDictionary class]]) return;
+        
+        
+        self.hotComments = [WJComment mj_objectArrayWithKeyValuesArray:responseObject[@"hot"]];
+        
+        [self.lastComments addObjectsFromArray:[WJComment mj_objectArrayWithKeyValuesArray:responseObject[@"data"]]];
+        
+        
+        
+        
+        if (parmas != self.parmas) return;
+        
+        [self.tabbleView reloadData];
+        
+        
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [SVProgressHUD showErrorWithStatus:@"加载数据失败"];
+        [self.tabbleView.mj_header endRefreshing];
+        [self.tabbleView.mj_footer endRefreshing];
+    }];
 
 }
 
@@ -110,13 +192,31 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    //有热门评论，返回两组
+    NSInteger hotCount = self.hotComments.count;
+    if (hotCount) return 2;
+    
+    //没热门评论有最新评论，返回一组
+    NSInteger lastCount = self.lastComments.count;
+    if (lastCount) return 1;
+    //都没有，返回0组
+    return 0;
+   
 
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 13;
+    return [self commentsInSection:section].count;
+    
+}
+
+- (NSArray *)commentsInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return self.hotComments.count ? self.hotComments : self.lastComments;
+    }
+    return self.lastComments;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -127,15 +227,26 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
     }
     
-    cell.textLabel.text = @"测试";
+    //有热门评论，返回两组
+    WJComment *comment = [self commentsInSection:indexPath.section][indexPath.row];
+    
+    cell.textLabel.text = comment.content;
+    
 
+    
     return cell;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    if (section == 0) return @"热门评论";
-    return @"评论";
+    //有热门评论，返回两组
+    NSInteger hotCount = self.hotComments.count;
+    
+    if (section == 0) {
+        return hotCount ? @"最热评论" : @"最新评论";
+    }
+
+    return @"最新评论";
 }
 
 #pragma mark - <UIScrollViewDelegate>
