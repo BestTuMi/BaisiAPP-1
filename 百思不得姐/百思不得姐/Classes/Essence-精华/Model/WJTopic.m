@@ -132,10 +132,6 @@
         }
      
     }
-    
-
-    
-    
 
     return _rowHeight;
 }

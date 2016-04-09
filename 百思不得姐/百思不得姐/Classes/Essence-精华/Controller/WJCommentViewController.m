@@ -14,8 +14,10 @@
 #import <SVProgressHUD.h>
 #import <MJExtension.h>
 #import "WJComment.h"
+#import "WJCommentHeaderView.h"
 
-@interface WJCommentViewController ()<UIScrollViewDelegate,UITableViewDataSource>
+
+@interface WJCommentViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *buttomConstraint;
 @property (weak, nonatomic) IBOutlet UITableView *tabbleView;
@@ -32,6 +34,10 @@
 
 /** 最新评论 */
 @property (nonatomic,strong) NSMutableArray *lastComments;
+
+
+/** 保存top_cmt */
+@property (nonatomic,strong) NSArray *top_cmt;
 
 @end
 
@@ -92,6 +98,11 @@
 
 - (void)setupTableHeaderView
 {
+    //清空top_cmt
+    self.top_cmt = self.topic.top_cmt;
+    self.topic.top_cmt = nil;
+    [self.topic setValue:@0 forKeyPath:@"rowHeight"];
+    
     UIView *header = [[UIView alloc] init];
 
     WJTopicCell *topicCell = [WJTopicCell topicCell];
@@ -112,6 +123,8 @@
     
 
 }
+
+
 
 - (void)setupRefresh
 {
@@ -184,6 +197,8 @@
 
 - (void)dealloc
 {
+    self.topic.top_cmt = self.top_cmt;
+    [self.topic setValue:@0 forKeyPath:@"rowHeight"];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -236,15 +251,21 @@
     return cell;
 }
 
-//- (nullable UITableViewHeaderFooterView *)headerViewForSection:(NSInteger)section
-//{
-//    UILabel *lab = [[UILabel alloc] init];
-//    lab.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-//    lab.text = @"哈哈";
-//    
-//    return lab;
-//
-//}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    WJCommentHeaderView *header = [WJCommentHeaderView headerWithTableview:tableView];
+    
+    //有热门评论，返回两组
+    NSInteger hotCount = self.hotComments.count;
+    
+    if (section == 0) {
+        header.text = hotCount ? @"最热评论" : @"最新评论";
+    }
+    header.text = @"最新评论";
+    return header;
+}
+
+
 
 
 //- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
