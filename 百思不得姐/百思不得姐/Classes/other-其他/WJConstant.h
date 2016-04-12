@@ -35,11 +35,11 @@ UIKIT_EXTERN CGFloat const WJTopicPictureNormalHeight;
 /**
  *  帖子模型里面用户的性别属性值(男)
  */
-UIKIT_EXTERN NSString const *WJTopicUserSexMale;
+UIKIT_EXTERN NSString *WJTopicUserSexMale;
 /**
  *  帖子模型里面用户的性别属性值(女)
  */
-UIKIT_EXTERN NSString const *WJTopicUserSexFemale;
+UIKIT_EXTERN NSString *WJTopicUserSexFemale;
 
 /**
  *  精华cell里面热门评论label的高度

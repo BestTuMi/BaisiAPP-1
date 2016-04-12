@@ -53,6 +53,8 @@
 		99BFE0EC1CA2365A009111EA /* WJTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99BFE0EA1CA2365A009111EA /* WJTopicCell.xib */; };
 		99C983421C9EBE9A00FA89C8 /* WJPushGuide.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C983411C9EBE9A00FA89C8 /* WJPushGuide.m */; };
 		99C983441C9EBEB400FA89C8 /* WJPushGuide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C983431C9EBEB400FA89C8 /* WJPushGuide.xib */; };
+		99CAFD961CBD0F26007BB800 /* WJCommentCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99CAFD941CBD0F26007BB800 /* WJCommentCellTableViewCell.m */; };
+		99CAFD971CBD0F26007BB800 /* WJCommentCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99CAFD951CBD0F26007BB800 /* WJCommentCellTableViewCell.xib */; };
 		99F6AEB51C953347003B4B1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99F6AEB41C953347003B4B1F /* Assets.xcassets */; };
 		99F6AEC31C953347003B4B1F /* _____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F6AEC21C953347003B4B1F /* _____Tests.m */; };
 		99F6AECE1C953347003B4B1F /* _____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F6AECD1C953347003B4B1F /* _____UITests.m */; };
@@ -165,6 +167,9 @@
 		99C983401C9EBE9A00FA89C8 /* WJPushGuide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJPushGuide.h; sourceTree = "<group>"; };
 		99C983411C9EBE9A00FA89C8 /* WJPushGuide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJPushGuide.m; sourceTree = "<group>"; };
 		99C983431C9EBEB400FA89C8 /* WJPushGuide.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WJPushGuide.xib; sourceTree = "<group>"; };
+		99CAFD931CBD0F26007BB800 /* WJCommentCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WJCommentCellTableViewCell.h; sourceTree = "<group>"; };
+		99CAFD941CBD0F26007BB800 /* WJCommentCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WJCommentCellTableViewCell.m; sourceTree = "<group>"; };
+		99CAFD951CBD0F26007BB800 /* WJCommentCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WJCommentCellTableViewCell.xib; sourceTree = "<group>"; };
 		99F6AEA51C953347003B4B1F /* 百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		99F6AEB41C953347003B4B1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99F6AEB91C953347003B4B1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -300,6 +305,9 @@
 				990128CC1CAAC02E0098E077 /* WJProgressView.m */,
 				99A265B21CB9438300D7E5E3 /* WJCommentHeaderView.h */,
 				99A265B31CB9438300D7E5E3 /* WJCommentHeaderView.m */,
+				99CAFD931CBD0F26007BB800 /* WJCommentCellTableViewCell.h */,
+				99CAFD941CBD0F26007BB800 /* WJCommentCellTableViewCell.m */,
+				99CAFD951CBD0F26007BB800 /* WJCommentCellTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -669,6 +677,7 @@
 				99FF40251CAD75FB00C3EE23 /* WJTopicVoiceView.xib in Resources */,
 				998CE9AA1C9AFFE200CE5814 /* WJRecommendTagCell.xib in Resources */,
 				990128D21CAAC5CF0098E077 /* WJShowPictureController.xib in Resources */,
+				99CAFD971CBD0F26007BB800 /* WJCommentCellTableViewCell.xib in Resources */,
 				99BFE0EC1CA2365A009111EA /* WJTopicCell.xib in Resources */,
 				9971CDD11C99A55200DDCFF6 /* WJCategoryTableViewCell.xib in Resources */,
 				99F6AEB51C953347003B4B1F /* Assets.xcassets in Resources */,
@@ -774,6 +783,7 @@
 				992CEA251C958C71002C8B2C /* WJNavigationController.m in Sources */,
 				992CEA201C9585B4002C8B2C /* WJTabbarController.m in Sources */,
 				9971CDD51C99A55200DDCFF6 /* WJRecommondUserCell.m in Sources */,
+				99CAFD961CBD0F26007BB800 /* WJCommentCellTableViewCell.m in Sources */,
 				992CEA1E1C9585B4002C8B2C /* UIBarButtonItem+WJExtension.m in Sources */,
 				990E465E1CA3FC8900663CB5 /* NSDate+WJExtension.m in Sources */,
 				992CEA1C1C9585B4002C8B2C /* WJNewController.m in Sources */,

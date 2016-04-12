@@ -11,6 +11,9 @@
 @class WJUser;
 @interface WJComment : NSObject
 
+
+/** 评论的id */
+@property (nonatomic,strong) NSString *id;
 /** 评论的内容 */
 @property (nonatomic,strong) NSString *content;
 
@@ -25,5 +28,8 @@
 
 /** 音频回复的时常 */
 @property (nonatomic,assign) NSInteger voicetime;
+
+/** 帖子的id */
+@property (nonatomic,strong) NSString *data_id;
 
 @end

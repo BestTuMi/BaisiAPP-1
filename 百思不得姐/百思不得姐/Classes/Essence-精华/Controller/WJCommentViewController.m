@@ -15,6 +15,7 @@
 #import <MJExtension.h>
 #import "WJComment.h"
 #import "WJCommentHeaderView.h"
+#import "WJCommentCellTableViewCell.h"
 
 
 @interface WJCommentViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -39,7 +40,12 @@
 /** 保存top_cmt */
 @property (nonatomic,strong) NSArray *top_cmt;
 
+/** 最后一个评论的cid */
+@property (nonatomic,strong) NSString *lastcid;
+
 @end
+
+static NSString * const CellID = @"commentCell";
 
 @implementation WJCommentViewController
 
@@ -87,6 +93,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+
 - (void)setupBasic
 {
     self.title = @"评论";
@@ -94,6 +101,14 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardChangedFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
     self.tabbleView.backgroundColor = WJGlobalBGColor;
+    
+    //注册cell
+    [self.tabbleView registerNib:[UINib nibWithNibName:NSStringFromClass([WJCommentCellTableViewCell class]) bundle:nil] forCellReuseIdentifier:CellID];
+    
+    //自动计算cell的高度
+    self.tabbleView.estimatedRowHeight = 100;
+    self.tabbleView.height = UITableViewAutomaticDimension;
+    
 }
 
 - (void)setupTableHeaderView
@@ -131,11 +146,15 @@
     self.tabbleView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewComments)];
 
     [self.tabbleView.mj_header beginRefreshing];
+    
+    self.tabbleView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(LoadMoreComments)];
 
 }
 
 - (void)loadNewComments
 {
+    [self.hotComments removeAllObjects];
+    [self.lastComments removeAllObjects];
     [self LoadMoreComments];
 
 }
@@ -147,6 +166,8 @@
     parmas[@"c"] = @"comment";
     parmas[@"hot"] = @1;
     parmas[@"data_id"] = @(self.topic.ID);
+    WJComment *cmt = [self.lastComments lastObject];
+    parmas[@"lastcid"] = cmt.id;
     self.parmas = parmas;
     
     [self.manager GET:BSURL parameters:parmas progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -156,11 +177,14 @@
 
         if (![responseObject isKindOfClass:[NSDictionary class]]) return;
         
-        
+        WJLog(@"%@",responseObject);
+
         self.hotComments = [WJComment mj_objectArrayWithKeyValuesArray:responseObject[@"hot"]];
         
         [self.lastComments addObjectsFromArray:[WJComment mj_objectArrayWithKeyValuesArray:responseObject[@"data"]]];
         
+        
+        self.tabbleView.mj_footer.hidden = self.lastComments.count >= [responseObject[@"total"] integerValue];
         
         
         
@@ -235,16 +259,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString * const ID = @"cmt_cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
-    }
-    
+//    static NSString * const ID = @"cmt_cell";
+    WJCommentCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID];
+ 
     //有热门评论，返回两组
     WJComment *comment = [self commentsInSection:indexPath.section][indexPath.row];
     
-    cell.textLabel.text = comment.content;
+    
+    cell.comment = comment;
+    
     
 
     

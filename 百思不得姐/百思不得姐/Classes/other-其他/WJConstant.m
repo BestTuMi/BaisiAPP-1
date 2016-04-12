@@ -25,11 +25,11 @@ CGFloat const WJTopicPictureNormalHeight = 300;
 /**
  *  帖子模型里面用户的性别属性值(男)
  */
-NSString const *WJTopicUserSexMale  = @"m";
+NSString * WJTopicUserSexMale  = @"m";
 /**
  *  帖子模型里面用户的性别属性值(女)
  */
-NSString const *WJTopicUserSexFemale = @"f";
+NSString * WJTopicUserSexFemale = @"f";
 
 /**
  *  精华cell里面热门评论label的高度
