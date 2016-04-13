@@ -71,6 +71,7 @@ static NSString * cellID = @"TopicCell";
     
     //底部刷新条
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];
+    self.tableView.mj_footer.hidden = YES;
     
 }
 
@@ -83,11 +84,25 @@ static NSString * cellID = @"TopicCell";
     
 }
 
+- (NSString *)listType
+{
+    
+    //childController.tabBarItem.title
+    if ([self.navigationController.tabBarItem.title isEqualToString:@"精华"]) {
+        return @"list";
+    }
+    else
+    {
+        return @"newlist";
+    }
+
+}
+
 - (void)loadMoreTopics
 {
     
     NSMutableDictionary *parmas = [NSMutableDictionary dictionary];
-    parmas[@"a"] = @"list";
+    parmas[@"a"] = [self listType];
     parmas[@"c"] = @"data";
     parmas[@"maxtime"] = self.maxtime;
     parmas[@"type"] = @(self.type);

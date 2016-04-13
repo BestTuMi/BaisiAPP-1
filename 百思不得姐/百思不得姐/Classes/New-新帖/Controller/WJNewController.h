@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WJEssenceController.h"
 
-@interface WJNewController : UIViewController
+@interface WJNewController : WJEssenceController
 
 @end
