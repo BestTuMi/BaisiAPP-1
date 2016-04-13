@@ -29,7 +29,12 @@
 /** 音频回复的时常 */
 @property (nonatomic,assign) NSInteger voicetime;
 
+/** 音频回复的路径 */
+@property (nonatomic,strong) NSString *voiceuri;
+
 /** 帖子的id */
 @property (nonatomic,strong) NSString *data_id;
+
+
 
 @end

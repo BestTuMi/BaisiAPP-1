@@ -64,6 +64,19 @@
                         <color key="textColor" red="0.18565014367816088" green="0.176086566091954" blue="0.19545617816091893" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IC4-ST-3rP" userLabel="音频">
+                        <rect key="frame" x="55" y="40" width="62" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="62" id="Lk1-vF-Ta8"/>
+                            <constraint firstAttribute="height" constant="22" id="sBw-uT-TkJ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <inset key="imageEdgeInsets" minX="41" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <state key="normal" title="12″" image="play-voice-stop" backgroundImage="play-voice-bg">
+                            <color key="titleColor" red="0.18565014369999999" green="0.17608656610000001" blue="0.1954561782" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <state key="highlighted" backgroundImage="play-voice-bg-select"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="UEl-Rj-2lr" firstAttribute="trailing" secondItem="7uK-4o-Okp" secondAttribute="trailing" constant="-10" id="1O9-HW-BRW"/>
@@ -72,6 +85,7 @@
                     <constraint firstAttribute="trailing" secondItem="7uK-4o-Okp" secondAttribute="trailing" constant="10" id="BIk-sB-4sf"/>
                     <constraint firstAttribute="bottom" secondItem="Zp2-Dl-PUr" secondAttribute="bottom" constant="10" id="Byd-eN-Sqp"/>
                     <constraint firstItem="UEl-Rj-2lr" firstAttribute="top" secondItem="7uK-4o-Okp" secondAttribute="bottom" id="Ehp-ab-lZY"/>
+                    <constraint firstItem="IC4-ST-3rP" firstAttribute="top" secondItem="Zp2-Dl-PUr" secondAttribute="top" id="Ilo-Fk-jka"/>
                     <constraint firstItem="UEl-Rj-2lr" firstAttribute="leading" secondItem="Zp2-Dl-PUr" secondAttribute="trailing" constant="5" id="K0g-8o-1Jb"/>
                     <constraint firstItem="bd1-sn-Hfd" firstAttribute="top" secondItem="WFs-UU-I2l" secondAttribute="top" id="Sz3-jW-rwP"/>
                     <constraint firstItem="hOn-nL-a8g" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="WYZ-jb-0Ws"/>
@@ -82,6 +96,7 @@
                     <constraint firstItem="WFs-UU-I2l" firstAttribute="top" secondItem="hOn-nL-a8g" secondAttribute="top" id="gPB-av-wWm"/>
                     <constraint firstItem="bd1-sn-Hfd" firstAttribute="bottom" secondItem="WFs-UU-I2l" secondAttribute="bottom" id="ki4-IX-pDn"/>
                     <constraint firstItem="UEl-Rj-2lr" firstAttribute="leading" secondItem="Zp2-Dl-PUr" secondAttribute="trailing" constant="10" id="ufW-y4-raz"/>
+                    <constraint firstItem="IC4-ST-3rP" firstAttribute="leading" secondItem="Zp2-Dl-PUr" secondAttribute="leading" id="xzE-7U-pAD"/>
                     <constraint firstItem="bd1-sn-Hfd" firstAttribute="leading" secondItem="WFs-UU-I2l" secondAttribute="trailing" id="ySR-Ii-v7a"/>
                     <constraint firstItem="UEl-Rj-2lr" firstAttribute="centerX" secondItem="7uK-4o-Okp" secondAttribute="centerX" id="z8p-RE-jVv"/>
                 </constraints>
@@ -99,6 +114,7 @@
                 <outlet property="nameLabel" destination="bd1-sn-Hfd" id="Kgr-iD-h2e"/>
                 <outlet property="profile_image" destination="hOn-nL-a8g" id="u8K-KD-qAC"/>
                 <outlet property="seximageView" destination="WFs-UU-I2l" id="cKd-X5-2T4"/>
+                <outlet property="voiceButton" destination="IC4-ST-3rP" id="Vuc-GH-nsN"/>
             </connections>
             <point key="canvasLocation" x="381" y="472"/>
         </tableViewCell>
@@ -107,5 +123,8 @@
         <image name="Profile_manIcon" width="13" height="13"/>
         <image name="commentLikeButton" width="18" height="18"/>
         <image name="commentLikeButtonClick" width="19" height="19"/>
+        <image name="play-voice-bg" width="62" height="22"/>
+        <image name="play-voice-bg-select" width="74" height="24"/>
+        <image name="play-voice-stop" width="12" height="12"/>
     </resources>
 </document>

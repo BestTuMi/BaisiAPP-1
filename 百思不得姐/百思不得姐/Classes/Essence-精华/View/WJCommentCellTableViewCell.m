@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 @property (weak, nonatomic) IBOutlet UILabel *likeCount;
+@property (weak, nonatomic) IBOutlet UIButton *voiceButton;
 
 @end
 
@@ -38,11 +39,34 @@
     self.likeCount.text = [NSString stringWithFormat:@"%zd",comment.like_count];
     self.profile_image.layer.cornerRadius = self.profile_image.width * 0.5;
     self.profile_image.layer.masksToBounds = YES;
+    
+    if (comment.voiceuri.length) {
+        self.voiceButton.hidden = NO;
+        [self.voiceButton setTitle:[NSString stringWithFormat:@"%zd″",comment.voicetime] forState:UIControlStateNormal];
+        self.contentLabel.text = @" voice";
+    }
+    else
+    {
+        self.voiceButton.hidden = YES;
+    
+    }
+    
 }
 
 
+- (void)setFrame:(CGRect)frame
+{
+    [super setFrame:frame];
+
+}
+
 - (void)awakeFromNib {
-    // Initialization code
+    
+    UIImageView *bgView = [[UIImageView alloc] init];
+    bgView.image = [UIImage imageNamed:@"mainCellBackground"];
+    self.backgroundView = bgView;
+    
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -109,6 +109,13 @@ static NSString * const CellID = @"commentCell";
     self.tabbleView.estimatedRowHeight = 100;
     self.tabbleView.height = UITableViewAutomaticDimension;
     
+    //隐藏系统分割线
+    self.tabbleView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    //内边距
+    self.tabbleView.contentInset = UIEdgeInsetsMake(0, 0, WJTopicMargin, 0);
+    
+    
 }
 
 - (void)setupTableHeaderView
@@ -153,6 +160,8 @@ static NSString * const CellID = @"commentCell";
 
 - (void)loadNewComments
 {
+    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+    
     [self.hotComments removeAllObjects];
     [self.lastComments removeAllObjects];
     [self LoadMoreComments];
@@ -176,15 +185,13 @@ static NSString * const CellID = @"commentCell";
         [self.tabbleView.mj_footer endRefreshing];
 
         if (![responseObject isKindOfClass:[NSDictionary class]]) return;
+        NSArray *lastCommentArr = responseObject[@"data"];
         
-        WJLog(@"%@",responseObject);
-
         self.hotComments = [WJComment mj_objectArrayWithKeyValuesArray:responseObject[@"hot"]];
         
-        [self.lastComments addObjectsFromArray:[WJComment mj_objectArrayWithKeyValuesArray:responseObject[@"data"]]];
+        [self.lastComments addObjectsFromArray:[WJComment mj_objectArrayWithKeyValuesArray:lastCommentArr]];
         
-        
-        self.tabbleView.mj_footer.hidden = self.lastComments.count >= [responseObject[@"total"] integerValue];
+        self.tabbleView.mj_footer.hidden = self.lastComments.count >= [responseObject[@"total"] integerValue] || !lastCommentArr.count;
         
         
         
@@ -224,6 +231,8 @@ static NSString * const CellID = @"commentCell";
     self.topic.top_cmt = self.top_cmt;
     [self.topic setValue:@0 forKeyPath:@"rowHeight"];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    [self.manager invalidateSessionCancelingTasks:YES];
 }
 
 #pragma mark - <UITableViewDataSource>
@@ -284,7 +293,10 @@ static NSString * const CellID = @"commentCell";
     if (section == 0) {
         header.text = hotCount ? @"最热评论" : @"最新评论";
     }
-    header.text = @"最新评论";
+    else
+    {
+        header.text = @"最新评论";
+    }
     return header;
 }
 
